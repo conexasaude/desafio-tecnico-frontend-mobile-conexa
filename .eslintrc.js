@@ -36,6 +36,7 @@ module.exports = {
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/unbound-method': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
   },
   settings: {
     react: {
