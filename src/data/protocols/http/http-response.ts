@@ -10,5 +10,7 @@ export enum HttpStatusCode {
 
 export interface HttpResponse<T = any> {
   statusCode: HttpStatusCode;
-  body?: T;
+  body?: {
+    data: T;
+  };
 }
