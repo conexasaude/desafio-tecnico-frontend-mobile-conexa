@@ -38,6 +38,7 @@ module.exports = {
     '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
   },
   settings: {
     react: {
