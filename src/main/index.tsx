@@ -7,6 +7,7 @@ import {
   Montserrat_500Medium,
   Montserrat_600SemiBold,
 } from '@expo-google-fonts/montserrat';
+import { PaperProvider } from 'react-native-paper';
 
 // Styles
 import { ThemeProvider } from 'styled-components';
@@ -27,7 +28,9 @@ export default function Main() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppNavigator />
+      <PaperProvider>
+        <AppNavigator />
+      </PaperProvider>
     </ThemeProvider>
   );
 }
