@@ -87,12 +87,20 @@ export function AppNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator>
         {renderAuthFlow()}
 
-        <Stack.Screen name={routes.HomeScreen} component={HomeScreen} />
+        <Stack.Screen
+          name={routes.HomeScreen}
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
 
-        <Stack.Screen name={routes.AppointmentDetailsScreen} component={AppointmentDetailsScreen} />
+        <Stack.Screen
+          name={routes.AppointmentDetailsScreen}
+          component={AppointmentDetailsScreen}
+          options={{ title: 'Detalhes' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
