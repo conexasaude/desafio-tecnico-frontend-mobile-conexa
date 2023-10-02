@@ -12,7 +12,7 @@ export const mockHttpRequest = (): HttpRequest => ({
 export class HttpClientSpy<R = any> implements HttpClient<R> {
   url?: string;
   method?: string;
-  body?: any;
+  body?: { data: any };
   headers?: any;
   response: HttpResponse<R> = {
     statusCode: HttpStatusCode.ok,
