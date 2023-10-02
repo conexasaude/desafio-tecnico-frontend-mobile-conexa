@@ -5,6 +5,9 @@ import { ActivityIndicator } from 'react-native';
 import { makeRemoteGetAppointmentsById } from '~/main/factories/usecases';
 import { Heading } from '~/presentation/components/heading';
 
+// Helpers
+import { formatDate, formatTime } from '~/presentation/helpers';
+
 // Styles
 import {
   AppointmentDetailsCardContainer,
@@ -59,6 +62,9 @@ export function AppointmentDetailsScreen({ route }: any) {
     return <ErrorScreen onPressTryAgain={fetchAppointmentById} />;
   }
 
+  const formattedDate = formatDate(patientInfo.dataConsulta);
+  const formattedTime = formatTime(patientInfo.dataConsulta);
+
   return (
     <ScreenContainer>
       <AppointmentDetailsCardContainer>
@@ -72,11 +78,11 @@ export function AppointmentDetailsScreen({ route }: any) {
             </Row>
             <Row>
               <Heading type="H2">Data: </Heading>
-              <Heading type="H3">{patientInfo.dataConsulta}</Heading>
+              <Heading type="H3">{formattedDate}</Heading>
             </Row>
             <Row>
               <Heading type="H2">Horário: </Heading>
-              <Heading type="H3">{patientInfo.dataConsulta}</Heading>
+              <Heading type="H3">{formattedTime}</Heading>
             </Row>
             <Row>
               <Heading type="H2">OBS: </Heading>

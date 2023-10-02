@@ -3,4 +3,5 @@ export interface AppointmentButtonCardInterface {
   date: string;
   time: string;
   observation: string;
+  onPress(): void;
 }
