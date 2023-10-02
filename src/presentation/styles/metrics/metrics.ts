@@ -11,6 +11,7 @@ export interface MetricsInterface {
   screenPaddingHorizontal: number;
   screenPaddingTop: number;
   tabIconSize: number;
+  headerSpace: number;
 }
 
 export const metrics = {
@@ -26,4 +27,5 @@ export const metrics = {
   screenPaddingHorizontal: 20,
   screenPaddingTop: 30,
   tabIconSize: 24,
+  headerSpace: 24,
 };
