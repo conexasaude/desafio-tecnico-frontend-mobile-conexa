@@ -10,6 +10,7 @@ export interface MetricsInterface {
   mainButtonHeight: number;
   screenPaddingHorizontal: number;
   screenPaddingTop: number;
+  tabIconSize: number;
 }
 
 export const metrics = {
@@ -24,4 +25,5 @@ export const metrics = {
   mainButtonHeight: 50,
   screenPaddingHorizontal: 20,
   screenPaddingTop: 30,
+  tabIconSize: 24,
 };
