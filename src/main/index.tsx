@@ -1,6 +1,6 @@
 import React from 'react';
 import { registerRootComponent } from 'expo';
-import { AppNavigator } from '~/presentation/navigation';
+import { AppNavigator } from '~/presentation/navigation/navigators';
 import {
   useFonts,
   Montserrat_400Regular,

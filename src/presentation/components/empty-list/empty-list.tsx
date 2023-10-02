@@ -9,7 +9,7 @@ import { Heading } from '~/presentation/components/heading';
 import { EmptyListContainer, StyledButton, StyledImage, WhiteHeading } from './styles';
 
 // Types
-import { StackNavigation } from '~/presentation/navigation/types';
+import { StackNavigation } from '~/presentation/navigation/navigators/types';
 
 export function EmptyList() {
   const navigation = useNavigation<StackNavigation>();

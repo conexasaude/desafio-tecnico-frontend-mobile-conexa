@@ -17,7 +17,7 @@ import { ScreenContainer } from './styles';
 
 // Types
 import { LoginFormInterface } from './types';
-import { StackNavigation } from '~/presentation/navigation/types';
+import { StackNavigation } from '~/presentation/navigation/navigators/types';
 
 // Validators
 import { emailValidation } from '~/presentation/validators';
