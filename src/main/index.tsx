@@ -9,12 +9,14 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { enGB, registerTranslation } from 'react-native-paper-dates';
 
 // Styles
 import { ThemeProvider } from 'styled-components';
 import { theme } from '~/presentation/styles';
 
 registerRootComponent(Main);
+registerTranslation('pt-BR', enGB);
 
 export default function Main() {
   const [isFontsLoaded] = useFonts({
