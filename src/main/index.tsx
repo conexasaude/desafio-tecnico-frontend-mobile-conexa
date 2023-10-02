@@ -8,6 +8,7 @@ import {
   Montserrat_600SemiBold,
 } from '@expo-google-fonts/montserrat';
 import { PaperProvider } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Styles
 import { ThemeProvider } from 'styled-components';
@@ -29,7 +30,9 @@ export default function Main() {
   return (
     <ThemeProvider theme={theme}>
       <PaperProvider>
-        <AppNavigator />
+        <SafeAreaProvider>
+          <AppNavigator />
+        </SafeAreaProvider>
       </PaperProvider>
     </ThemeProvider>
   );
