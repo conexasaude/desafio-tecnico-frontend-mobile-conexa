@@ -16,9 +16,10 @@ export function AppointmentButtonCard({
   date,
   time,
   observation,
+  onPress,
 }: AppointmentButtonCardInterface) {
   return (
-    <StyledTouchableOpacity onPress={() => null}>
+    <StyledTouchableOpacity onPress={onPress}>
       <Row>
         <View style={{ flex: 1 }}>
           <Row>
