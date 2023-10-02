@@ -5,6 +5,6 @@ export const setCurrentAccountAdapter = (account: AccountModel): Promise<void> =
   return makeLocalSecureStorageAdapter().set('account', account);
 };
 
-export const getCurrentAccountAdapter = (): Promise<AccountModel> => {
-  return makeLocalSecureStorageAdapter().get('account') as Promise<AccountModel>;
+export const getCurrentAccountAdapter = (): Promise<string> => {
+  return makeLocalSecureStorageAdapter().get('account') as Promise<string>;
 };

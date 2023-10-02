@@ -52,7 +52,7 @@ export function LoginScreen() {
 
       await setCurrentAccountAdapter(response.data);
       setIsLoading(false);
-      navigation.navigate(routes.CreateAppointmentScreen);
+      navigation.navigate(routes.HomeScreen);
     } catch (error) {
       setIsLoading(false);
       setHasAuthenticationFailed(true);
