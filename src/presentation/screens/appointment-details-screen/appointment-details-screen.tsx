@@ -6,7 +6,7 @@ import { makeRemoteGetAppointmentsById } from '~/main/factories/usecases';
 import { Heading } from '~/presentation/components/heading';
 
 // Helpers
-import { formatDate, formatTime } from '~/presentation/helpers';
+import { addZeroToLeft, formatDate } from '~/presentation/helpers';
 
 // Styles
 import {
@@ -60,6 +60,17 @@ export function AppointmentDetailsScreen({ route }: any) {
 
   if (hasError) {
     return <ErrorScreen onPressTryAgain={fetchAppointmentById} />;
+  }
+
+  function formatTime(date: string) {
+    const newDate = new Date(date);
+    const hours = newDate.getHours();
+    const minutes = newDate.getMinutes();
+
+    const formattedHour = hours < 10 ? addZeroToLeft(hours) : hours.toString();
+    const formattedMinutes = minutes < 10 ? addZeroToLeft(minutes) : minutes.toString();
+
+    return `${formattedHour}:${formattedMinutes}`;
   }
 
   const formattedDate = formatDate(patientInfo.dataConsulta);
