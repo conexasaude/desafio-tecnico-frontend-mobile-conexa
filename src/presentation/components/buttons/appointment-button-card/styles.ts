@@ -7,6 +7,10 @@ export const StyledTouchableOpacity = styled.TouchableOpacity`
       border-radius: ${theme.metrics.borderRadius}px;
       justify-content: center;
       background-color: ${theme.colors.white};
+      elevation: 3;
+      shadow-color: ${theme.colors.black};
+      shadow-radius: ${theme.metrics.borderRadius}px;
+      shadow-opacity: ${theme.metrics.shadowOpacity};
     `;
   }};
 `;

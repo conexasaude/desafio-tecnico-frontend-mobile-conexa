@@ -12,6 +12,7 @@ export interface MetricsInterface {
   screenPaddingTop: number;
   tabIconSize: number;
   headerSpace: number;
+  shadowOpacity: number;
 }
 
 export const metrics = {
@@ -28,4 +29,5 @@ export const metrics = {
   screenPaddingTop: 30,
   tabIconSize: 24,
   headerSpace: 24,
+  shadowOpacity: 0.1,
 };
