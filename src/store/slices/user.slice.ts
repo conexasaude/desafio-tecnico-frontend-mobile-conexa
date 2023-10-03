@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '@/models/user';
 import { login } from '../thunks/user.thunk';
 
@@ -18,6 +18,11 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    rememberLogin: (state, { payload }: PayloadAction<User>) => ({
+      ...state,
+      user: payload,
+    }),
+
     loggout: () => ({
       loading: false,
       error: undefined,
