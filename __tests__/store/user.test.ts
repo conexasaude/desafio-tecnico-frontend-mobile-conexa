@@ -91,4 +91,17 @@ describe('userSlice', () => {
       user: undefined,
     });
   });
+
+  test('should handle remember login success', () => {
+    const reducerRememberLogin = userSlice.reducer(
+      undefined,
+      userSlice.actions.rememberLogin(mockedUser.data),
+    );
+
+    expect(reducerRememberLogin).toEqual({
+      loading: false,
+      error: undefined,
+      user: mockedUser.data,
+    });
+  });
 });
