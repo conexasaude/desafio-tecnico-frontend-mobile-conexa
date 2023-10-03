@@ -11,6 +11,9 @@ import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enGB, registerTranslation } from 'react-native-paper-dates';
 
+// Context
+import { AuthProvider } from '~/presentation/context';
+
 // Styles
 import { ThemeProvider } from 'styled-components';
 import { theme } from '~/presentation/styles';
@@ -33,7 +36,9 @@ export default function Main() {
     <ThemeProvider theme={theme}>
       <PaperProvider>
         <SafeAreaProvider>
-          <AppNavigator />
+          <AuthProvider>
+            <AppNavigator />
+          </AuthProvider>
         </SafeAreaProvider>
       </PaperProvider>
     </ThemeProvider>

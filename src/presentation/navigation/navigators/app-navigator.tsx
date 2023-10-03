@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { routes } from '~/presentation/navigation/routes';
 
-// Adapters
-import { getCurrentAccountAdapter } from '~/main/adapters';
-
 // Components
 import { AppointmentsIcon, HomeIcon } from '~/presentation/components/icons';
+import { ActivityIndicator, View } from 'react-native';
 
 // Screens
 import {
@@ -23,37 +21,25 @@ import { useTheme } from 'styled-components';
 
 // Types
 import { RootStackParamList } from './types';
+import { AuthContext } from '~/presentation/context';
 
 export function AppNavigator() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const { isLoading, user } = useContext(AuthContext);
   const Stack = createNativeStackNavigator<RootStackParamList>();
   const Tab = createBottomTabNavigator();
   const theme = useTheme();
 
-  const checkAccessToken = useCallback(async () => {
-    const account: string = await getCurrentAccountAdapter();
-    const parseAccount = JSON.parse(account);
-
-    if (parseAccount?.token) {
-      setIsSignedIn(true);
-    }
-
-    return;
-  }, []);
-
-  useEffect(() => {
-    void checkAccessToken();
-  }, [checkAccessToken]);
-
   function renderAuthFlow() {
-    if (!isSignedIn) {
+    if (user?.token) {
+      return null;
+    }
+    return (
       <Stack.Screen
         name={routes.LoginScreen}
         component={LoginScreen}
-        options={{ title: 'Login' }}
-      />;
-    }
-    return null;
+        options={{ headerShown: false }}
+      />
+    );
   }
 
   function HomeScreen() {
@@ -93,6 +79,14 @@ export function AppNavigator() {
       background: theme.colors.white,
     },
   };
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <ActivityIndicator size="large" color={theme.colors.white} />
+      </View>
+    );
+  }
 
   return (
     <NavigationContainer theme={screensTheme}>
