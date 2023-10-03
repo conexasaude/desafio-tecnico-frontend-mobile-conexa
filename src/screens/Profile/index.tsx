@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Styled from './styles';
 import { useTheme } from '@emotion/react';
 import { useReduxSelector } from '@/hooks/useReduxSelector';
 import { useReduxDispatch } from '@/hooks/useReduxDispatch';
 import { userSlice } from '@/store/slices/user.slice';
+import { useAsyncStorage } from '@/hooks/useAsyncStorage';
 
 export function ProfileScreen() {
   const { colors } = useTheme();
   const { user } = useReduxSelector(state => state.user);
+  const { remove } = useAsyncStorage();
   const dispatch = useReduxDispatch();
+
+  const logout = useCallback(async () => {
+    dispatch(userSlice.actions.loggout());
+    await remove('user');
+  }, [dispatch, remove]);
 
   return (
     <Styled.SafeArea>
@@ -23,7 +30,7 @@ export function ProfileScreen() {
         <Styled.LoggoutButton
           variant="outlined"
           title="Sair"
-          onPress={() => dispatch(userSlice.actions.loggout())}
+          onPress={logout}
         />
       </Styled.Container>
     </Styled.SafeArea>
