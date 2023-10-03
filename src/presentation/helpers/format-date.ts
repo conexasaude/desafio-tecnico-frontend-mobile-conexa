@@ -1,12 +1,14 @@
 import { addZeroToLeft } from './add-zero-to-left';
 
-export function formatDate(date: string) {
-  const newDate = new Date(date);
-  let day: number | string = newDate.getDate();
-  day = day < 10 ? addZeroToLeft(day) : day;
-  let month: number | string = newDate.getMonth() + 1;
-  month = month < 10 ? addZeroToLeft(month) : month;
-  const year = newDate.getFullYear();
+export function formatDate(date?: Date) {
+  if (!date) {
+    return '';
+  }
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const formattedMonth = month < 10 ? addZeroToLeft(month) : month;
+  const day = date.getDate();
+  const formattedDay = day < 10 ? addZeroToLeft(day) : day;
 
-  return `${day}/${month}/${year}`;
+  return `${formattedDay}/${formattedMonth}/${year}`;
 }
