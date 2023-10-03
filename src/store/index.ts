@@ -1,6 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { userSlice } from './slices/user.slice';
+import { appointmentSlice } from './slices/appointment.slice';
 
-export const globalReducer = {};
+export const globalReducer = {
+  user: userSlice.reducer,
+  appointment: appointmentSlice.reducer,
+};
 
 export const reducers = combineReducers(globalReducer);
 
