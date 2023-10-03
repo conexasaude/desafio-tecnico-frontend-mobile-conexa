@@ -25,8 +25,11 @@ Existe um arquivo .env.example na raiz do projeto, basta renomeá-lo para apenas
 Instale todas as dependências:
 $ yarn install
 
-Inicie o projeto na sua plataforma de escolha:
+Iniciar o app no IOS:
+$ cd ios pod install && cd ..
 $ yarn run ios
+
+Iniciar o app no Android:
 $ yarn run android
 
 executar testes unitários
