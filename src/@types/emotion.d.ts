@@ -1,8 +1,8 @@
 import '@emotion/react';
 
-import { COLOR_TYPE } from '@/styles/colors';
-import { EFFECTS_TYPE } from '@/styles/effects';
-import { FONT_TYPE } from '@/styles/fonts';
+import { COLOR_TYPE } from '@/theme/colors';
+import { EFFECTS_TYPE } from '@/theme/effects';
+import { FONT_TYPE } from '@/theme/fonts';
 
 declare module '@emotion/react' {
   export interface Theme {
