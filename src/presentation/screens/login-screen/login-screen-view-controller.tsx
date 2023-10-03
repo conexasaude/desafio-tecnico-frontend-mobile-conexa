@@ -32,7 +32,8 @@ export function useLoginScreenViewController() {
   const emailValue = watch('email');
   const passwordValue = watch('password');
   const hasEmailError = errors.email?.type === 'validateEmail';
-  const isMainButtonDisabled = emailValue === '' || passwordValue === '' || hasEmailError;
+  const isMainButtonDisabled =
+    emailValue === '' || passwordValue === '' || hasEmailError || isLoading;
 
   async function handleLogin(data: LoginFormInterface) {
     setIsLoading(true);
