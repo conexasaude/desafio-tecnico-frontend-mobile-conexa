@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { routes } from '~/presentation/navigation/routes';
@@ -85,8 +85,16 @@ export function AppNavigator() {
     );
   }
 
+  const screensTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: theme.colors.white,
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={screensTheme}>
       <Stack.Navigator>
         {renderAuthFlow()}
 
