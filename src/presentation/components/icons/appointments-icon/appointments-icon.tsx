@@ -4,7 +4,10 @@ import { Feather } from '@expo/vector-icons';
 // Styles
 import { useTheme } from 'styled-components';
 
-export function AppointmentsIcon() {
+// Types
+import { AppointmentsIconInterface } from './types';
+
+export function AppointmentsIcon({ color }: AppointmentsIconInterface) {
   const theme = useTheme();
-  return <Feather name="list" size={theme.metrics.tabIconSize} color={theme.colors.black} />;
+  return <Feather name="list" size={theme.metrics.tabIconSize} color={color} />;
 }

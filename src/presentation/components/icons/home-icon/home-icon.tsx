@@ -4,7 +4,10 @@ import { Entypo } from '@expo/vector-icons';
 // Styles
 import { useTheme } from 'styled-components';
 
-export function HomeIcon() {
+// Types
+import { HomeIconInterface } from './types';
+
+export function HomeIcon({ color }: HomeIconInterface) {
   const theme = useTheme();
-  return <Entypo name="home" size={theme.metrics.tabIconSize} color={theme.colors.black} />;
+  return <Entypo name="home" size={theme.metrics.tabIconSize} color={color} />;
 }

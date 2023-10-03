@@ -63,14 +63,18 @@ export function AppNavigator() {
     return (
       <Tab.Navigator
         initialRouteName={routes.CreateAppointmentScreen}
-        screenOptions={{ headerShown: false, tabBarActiveTintColor: theme.colors.secondary }}
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: theme.colors.secondary,
+          tabBarInactiveTintColor: theme.colors.black,
+        }}
       >
         <Tab.Screen
           name={routes.CreateAppointmentScreen}
           component={CreateAppointmentScreen}
           options={{
             title: 'Home',
-            tabBarIcon: () => <HomeIcon />,
+            tabBarIcon: ({ color }) => <HomeIcon color={color} />,
           }}
         />
         <Tab.Screen
@@ -78,7 +82,7 @@ export function AppNavigator() {
           component={AppointmentsScreen}
           options={{
             title: 'Consultas',
-            tabBarIcon: () => <AppointmentsIcon />,
+            tabBarIcon: ({ color }) => <AppointmentsIcon color={color} />,
           }}
         />
       </Tab.Navigator>
