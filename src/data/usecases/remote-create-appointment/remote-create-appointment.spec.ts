@@ -79,4 +79,17 @@ describe('RemoteCreateAppointment', () => {
 
     expect(appointment).toEqual(httpResult);
   });
+
+  test('Should return an AppointmentModel if HttpClient returns 201', async () => {
+    const { sut, httpClientSpy } = makeSut();
+    const httpResult = mockAppointmentModel();
+    httpClientSpy.response = {
+      statusCode: HttpStatusCode.created,
+      body: httpResult,
+    };
+
+    const appointment = await sut.execute(mockCreateAppointmentParams());
+
+    expect(appointment).toEqual(httpResult);
+  });
 });
