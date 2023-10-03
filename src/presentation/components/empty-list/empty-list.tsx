@@ -1,23 +1,18 @@
 import React from 'react';
-import { routes } from '~/presentation/navigation/routes';
-import { useNavigation } from '@react-navigation/native';
 
 // Components
 import { Heading } from '~/presentation/components/heading';
 
+// Hooks
+import { useEmptyListViewController } from './empty-list-view-controller';
+
 // Styles
 import { EmptyListContainer, StyledButton, StyledImage, WhiteHeading } from './styles';
 
-// Types
-import { StackNavigation } from '~/presentation/navigation/navigators/types';
-
 export function EmptyList() {
-  const navigation = useNavigation<StackNavigation>();
+  const { goToCreateAppointmentScreen } = useEmptyListViewController();
   const emptyListSource = '../../../../assets/images/empty-list-image.png';
 
-  function goToCreateAppointmentScreen() {
-    navigation.navigate(routes.CreateAppointmentScreen);
-  }
   return (
     <EmptyListContainer>
       <StyledImage source={require(emptyListSource)} alt="Lista vazia" />
