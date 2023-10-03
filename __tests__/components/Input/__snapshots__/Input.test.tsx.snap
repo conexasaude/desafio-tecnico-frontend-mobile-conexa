@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should matches snapshot 1`] = `
+<View
+  style={
+    [
+      {},
+      {},
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "borderColor": "#2E50D4",
+          "borderRadius": 8,
+          "borderWidth": 2,
+          "height": 52,
+          "marginTop": 16,
+          "padding": 8,
+        },
+        undefined,
+      ]
+    }
+    testID="input-container"
+    textArea={false}
+  >
+    <Text
+      style={
+        [
+          {
+            "backgroundColor": "#fff",
+            "color": "#2E50D4",
+            "fontFamily": "Nunito-Bold",
+            "fontSize": 14,
+            "left": 16,
+            "padding": 4,
+            "position": "absolute",
+            "top": -14,
+          },
+          undefined,
+        ]
+      }
+    >
+      label
+    </Text>
+    <View
+      style={
+        [
+          {
+            "flex": 1,
+            "flexDirection": "row",
+          },
+          undefined,
+        ]
+      }
+    >
+      <TextInput
+        multiline={false}
+        placeholderTextColor="#B3B3B3"
+        style={
+          [
+            {
+              "color": "#333333",
+              "flex": 1,
+              "fontFamily": "Nunito-SemiBold",
+              "fontSize": 16,
+              "padding": 0,
+            },
+            undefined,
+          ]
+        }
+        testID="input-text"
+        textAlignVertical="center"
+      />
+    </View>
+  </View>
+</View>
+`;
