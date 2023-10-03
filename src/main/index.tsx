@@ -16,7 +16,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '~/presentation/styles';
 
 registerRootComponent(Main);
-registerTranslation('pt-BR', enGB);
+registerTranslation('pt', enGB);
 
 export default function Main() {
   const [isFontsLoaded] = useFonts({
