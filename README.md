@@ -15,7 +15,7 @@
 Clone o repositorio:
 $ git clone git@github.com:iamlipe/desafio-tecnico-frontend-mobile-conexa.git
 
-$ git checkout origin/felipe-lima
+$ git checkout origin/feature/app-conexa
 
 Configure o arquivo .env:
 Existe um arquivo .env.example na raiz do projeto, basta renomeá-lo para apenas .env.
