@@ -46,17 +46,14 @@ export function AppNavigator() {
   }, [checkAccessToken]);
 
   function renderAuthFlow() {
-    if (isSignedIn) {
-      return null;
-    }
-
-    return (
+    if (!isSignedIn) {
       <Stack.Screen
         name={routes.LoginScreen}
         component={LoginScreen}
         options={{ title: 'Login' }}
-      />
-    );
+      />;
+    }
+    return null;
   }
 
   function HomeScreen() {
