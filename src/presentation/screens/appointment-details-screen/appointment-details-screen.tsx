@@ -1,12 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { makeRemoteGetAppointmentsById } from '~/main/factories/usecases';
 
 // Components
 import { ActivityIndicator } from 'react-native';
-import { makeRemoteGetAppointmentsById } from '~/main/factories/usecases';
 import { Heading } from '~/presentation/components/heading';
-
-// Helpers
-import { addZeroToLeft, formatDate } from '~/presentation/helpers';
+import { ErrorScreen } from '~/presentation/components';
 
 // Styles
 import {
@@ -17,24 +15,30 @@ import {
   ScreenContainer,
   StyledImage,
 } from './styles';
-import { useTheme } from 'styled-components';
 
 // Types
-import { AppointmentModel } from '~/domain/models';
-import { ErrorScreen } from '~/presentation/components';
+import { useAppointmentDetailsScreenViewController } from './appointment-details-screen-view-controller';
 
 export function AppointmentDetailsScreen({ route }: any) {
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [patientInfo, setPatientInfo] = useState<AppointmentModel>({});
-  const theme = useTheme();
+  const { id } = route.params;
   const patientAvatarImageSource = '../../../../assets/images/patient-avatar-image.png';
-  const { params } = route;
+
+  const {
+    formattedDate,
+    formattedTime,
+    hasError,
+    isLoading,
+    theme,
+    patientInfo,
+    setIsLoading,
+    setHasError,
+    setPatientInfo,
+  } = useAppointmentDetailsScreenViewController();
 
   const fetchAppointmentById = useCallback(async () => {
     setIsLoading(true);
     setHasError(false);
-    const remoteGetAppointmentsById = makeRemoteGetAppointmentsById(params.id);
+    const remoteGetAppointmentsById = makeRemoteGetAppointmentsById(id);
 
     try {
       const response = await remoteGetAppointmentsById.execute();
@@ -44,7 +48,7 @@ export function AppointmentDetailsScreen({ route }: any) {
       setIsLoading(false);
       setHasError(true);
     }
-  }, [params.id]);
+  }, [id, setHasError, setIsLoading, setPatientInfo]);
 
   useEffect(() => {
     void fetchAppointmentById();
@@ -61,20 +65,6 @@ export function AppointmentDetailsScreen({ route }: any) {
   if (hasError) {
     return <ErrorScreen onPressTryAgain={fetchAppointmentById} />;
   }
-
-  function formatTime(date: string) {
-    const newDate = new Date(date);
-    const hours = newDate.getHours();
-    const minutes = newDate.getMinutes();
-
-    const formattedHour = hours < 10 ? addZeroToLeft(hours) : hours.toString();
-    const formattedMinutes = minutes < 10 ? addZeroToLeft(minutes) : minutes.toString();
-
-    return `${formattedHour}:${formattedMinutes}`;
-  }
-
-  const formattedDate = formatDate(patientInfo.dataConsulta);
-  const formattedTime = formatTime(patientInfo.dataConsulta);
 
   return (
     <ScreenContainer>
