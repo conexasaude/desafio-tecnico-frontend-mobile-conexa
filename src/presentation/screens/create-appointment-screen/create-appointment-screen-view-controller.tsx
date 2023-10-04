@@ -31,7 +31,7 @@ export function useCreateAppointmentScreenViewController() {
   const observacao = watch('observacao');
   const isTimeFieldEmpty = time === '';
   const isMainButtonDisabled =
-    pacienteValue === '' || observacao === '' || isTimeFieldEmpty || isLoading;
+    pacienteValue === '' || observacao === '' || isTimeFieldEmpty || isLoading || !rawDate;
   const userName = user?.nome || '';
 
   function resetInputs() {
