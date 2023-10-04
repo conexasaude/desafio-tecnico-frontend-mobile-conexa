@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { routes } from '~/presentation/navigation/routes';
 
 // Components
-import { AppointmentsIcon, HomeIcon } from '~/presentation/components/icons';
+import { AppointmentsIcon, AccountIcon, HomeIcon } from '~/presentation/components/icons';
 
 // Screens
 import {
@@ -57,6 +57,7 @@ export function PrivateNavigator() {
           component={AccountScreen}
           options={{
             title: 'Conta',
+            tabBarIcon: ({ color }) => <AccountIcon color={color} />,
           }}
         />
       </Tab.Navigator>
