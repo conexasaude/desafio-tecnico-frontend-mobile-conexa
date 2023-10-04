@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should matches snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "backgroundColor": "#fff",
+      "borderRadius": 8,
+      "elevation": 2,
+      "marginBottom": 16,
+      "opacity": 1,
+      "padding": 12,
+      "shadowColor": "#000",
+      "shadowOffset": {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.25,
+      "shadowRadius": 1.5,
+      "width": "100%",
+    }
+  }
+  testID="card"
+>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "flex": 1,
+            "height": 52,
+            "justifyContent": "space-around",
+            "marginRight": 4,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#7F7F7F",
+              "fontFamily": "Nunito-SemiBold",
+              "fontSize": 16,
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <Text
+        numberOfLines={2}
+        style={
+          [
+            {
+              "color": "#999999",
+              "fontFamily": "Nunito-Regular",
+              "fontSize": 14,
+            },
+            undefined,
+          ]
+        }
+      >
+        description
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "#2E50D4",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "height": 48,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 8,
+          "width": "auto",
+        }
+      }
+      testID="card-button"
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#2E50D4",
+              "fontFamily": "Nunito-Bold",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            undefined,
+          ]
+        }
+        variant="outlined"
+      >
+        ver mais
+      </Text>
+    </View>
+  </View>
+</View>
+`;

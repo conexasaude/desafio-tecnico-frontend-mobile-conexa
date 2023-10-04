@@ -1,30 +1,48 @@
-# Desafio Técnico Front-End Mobile Conexa
+## Tasks
 
-Descrição:
+- [x] Tela de Login
+- [x] Tela consultas
+- [x] Tela para agendar consultas
+- [x] Tela de detalhes da consulta
+- [x] Tela de perfil
+- [x] Tela de sync
+- [x] Testes unitarios
 
-Precisamos construir um front onde nossos médicos de plantão consigam agendar atendimentos para os pacientes e listar os atendimentos agendados.
 
-Será necessário ter uma tela de login para que médicos da clínica Conexa Saúde consigam acessar a aplicação, utilizando email e senha (Podem realizar o login com qualquer usuário de teste).
-O response do login será um token de validação e o nome do médico.
+## Como Executar
 
-O médico poderá cadastrar, listar e detalhar uma consulta.
+```terminal
+Clone o repositorio:
+$ git clone git@github.com:iamlipe/desafio-tecnico-frontend-mobile-conexa.git
 
-Link da API: http://desafio.conexasaude.com.br/swagger-ui.html#/desafio-rest
+$ cd desafio-tecnico-frontend-mobile-conexa
 
-Requisitos:
+$ git checkout feature/app-conexa
 
-* Desenvolver uma aplicação usando React Native;
-* Clonar este repositório, criar uma nova branch e abrir um merge request para master;
+Configure o arquivo .env:
+Existe um arquivo .env.example na raiz do projeto, basta renomeá-lo para apenas .env.
 
-Serão avaliados os seguintes itens:
+Instale todas as dependências:
+$ yarn install
 
-* Clareza do código;
-* Estrutura criada para a aplicação;
-* Se os requisitos descritos acima foram atendidos;
-* Se possui descrição clara de como montar o ambiente local e realizar os testes (se houverem);
+Iniciar o app no IOS:
+$ cd ios pod install && cd ..
+$ yarn run ios
 
-Em caso de dúvidas sobre o desafio, entre em contato.
+Iniciar o app no Android:
+$ yarn run android
 
-Adicionamos um projeto do Postman para auxílio.
+executar testes unitários
+$ yarn run test
+```
 
-Lembre-se que uma boa aplicação é bem testada.
+## Preview
+
+<div>
+ <img src="./assets/images/preview-splash.png" width=120 />
+ <img src="./assets/images/preview-login.png" width=120 />
+ <img src="./assets/images/preview-appointments.png" width=120 />
+ <img src="./assets/images/preview-details-appointments.png" width=120 />
+ <img src="./assets/images/preview-schedule-appointment.png" width=120 />
+ <img src="./assets/images/preview-profile.png" width=120 />
+</div>

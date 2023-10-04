@@ -1,0 +1,554 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appointments should matches snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "marginTop": 40,
+            "paddingHorizontal": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#2E50D4",
+              "fontFamily": "Nunito-Bold",
+              "fontSize": 24,
+            },
+            undefined,
+          ]
+        }
+      >
+        Painel de Consultas
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#E5E5E5",
+              "height": 1,
+              "marginBottom": 40,
+              "marginTop": 16,
+              "width": "100%",
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginBottom": 32,
+            "paddingHorizontal": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#7F7F7F",
+              "fontFamily": "Nunito-SemiBold",
+            },
+            undefined,
+          ]
+        }
+      >
+        2 consulta(s) agendadas
+      </Text>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignSelf": "center",
+            "backgroundColor": "#2E50D4",
+            "borderColor": "#2E50D4",
+            "borderRadius": 8,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "height": 52,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 8,
+            "width": "40%",
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "color": "#fff",
+                "fontFamily": "Nunito-Bold",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+              undefined,
+            ]
+          }
+          variant="contained"
+        >
+          Agendar Consulta
+        </Text>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
+        {
+          "paddingHorizontal": 16,
+        }
+      }
+      data={
+        [
+          {
+            "dataConsulta": "2020-04-23 08:30",
+            "id": 16,
+            "medico": {
+              "email": null,
+              "id": 1,
+              "nome": "Dr. Daniel Vieira",
+            },
+            "observacao": "Exemplo de consulta",
+            "paciente": "Diego Senna",
+          },
+          {
+            "dataConsulta": "2020-04-23 08:30",
+            "id": 11,
+            "medico": {
+              "email": null,
+              "id": 1,
+              "nome": "Dr. Daniel Vieira",
+            },
+            "observacao": "Exemplo de consulta",
+            "paciente": "Rafael Braga",
+          },
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#fff",
+                "borderRadius": 8,
+                "elevation": 2,
+                "marginBottom": 16,
+                "opacity": 1,
+                "padding": 12,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 1,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 1.5,
+                "width": "100%",
+              }
+            }
+            testID="appointment-card"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "flex": 1,
+                      "height": 52,
+                      "justifyContent": "space-around",
+                      "marginRight": 4,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "color": "#7F7F7F",
+                        "fontFamily": "Nunito-SemiBold",
+                        "fontSize": 16,
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Diego Senna
+                </Text>
+                <Text
+                  numberOfLines={2}
+                  style={
+                    [
+                      {
+                        "color": "#999999",
+                        "fontFamily": "Nunito-Regular",
+                        "fontSize": 14,
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  2020-04-23 08:30
+                </Text>
+              </View>
+              <View
+                accessibilityState={
+                  {
+                    "busy": undefined,
+                    "checked": undefined,
+                    "disabled": undefined,
+                    "expanded": undefined,
+                    "selected": undefined,
+                  }
+                }
+                accessibilityValue={
+                  {
+                    "max": undefined,
+                    "min": undefined,
+                    "now": undefined,
+                    "text": undefined,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignSelf": "center",
+                    "backgroundColor": "transparent",
+                    "borderColor": "#2E50D4",
+                    "borderRadius": 8,
+                    "borderStyle": "solid",
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "padding": 8,
+                    "width": "auto",
+                  }
+                }
+                testID="card-button"
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "color": "#2E50D4",
+                        "fontFamily": "Nunito-Bold",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                  variant="outlined"
+                >
+                  Ver Detalhes
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#fff",
+                "borderRadius": 8,
+                "elevation": 2,
+                "marginBottom": 16,
+                "opacity": 1,
+                "padding": 12,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 1,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.25,
+                "shadowRadius": 1.5,
+                "width": "100%",
+              }
+            }
+            testID="appointment-card"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "flex": 1,
+                      "height": 52,
+                      "justifyContent": "space-around",
+                      "marginRight": 4,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "color": "#7F7F7F",
+                        "fontFamily": "Nunito-SemiBold",
+                        "fontSize": 16,
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Rafael Braga
+                </Text>
+                <Text
+                  numberOfLines={2}
+                  style={
+                    [
+                      {
+                        "color": "#999999",
+                        "fontFamily": "Nunito-Regular",
+                        "fontSize": 14,
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  2020-04-23 08:30
+                </Text>
+              </View>
+              <View
+                accessibilityState={
+                  {
+                    "busy": undefined,
+                    "checked": undefined,
+                    "disabled": undefined,
+                    "expanded": undefined,
+                    "selected": undefined,
+                  }
+                }
+                accessibilityValue={
+                  {
+                    "max": undefined,
+                    "min": undefined,
+                    "now": undefined,
+                    "text": undefined,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  {
+                    "alignSelf": "center",
+                    "backgroundColor": "transparent",
+                    "borderColor": "#2E50D4",
+                    "borderRadius": 8,
+                    "borderStyle": "solid",
+                    "borderWidth": 1,
+                    "height": 48,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "padding": 8,
+                    "width": "auto",
+                  }
+                }
+                testID="card-button"
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "color": "#2E50D4",
+                        "fontFamily": "Nunito-Bold",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                  variant="outlined"
+                >
+                  Ver Detalhes
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;

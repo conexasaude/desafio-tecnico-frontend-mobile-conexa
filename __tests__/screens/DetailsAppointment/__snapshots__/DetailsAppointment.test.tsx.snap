@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsAppointments should matches snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+          "paddingHorizontal": 16,
+          "paddingTop": 40,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#2E50D4",
+            "fontFamily": "Nunito-Bold",
+            "fontSize": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Nome do paciente:
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#7F7F7F",
+            "fontFamily": "Nunito-SemiBold",
+            "fontSize": 14,
+            "marginBottom": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Maria Brow
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#2E50D4",
+            "fontFamily": "Nunito-Bold",
+            "fontSize": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Data:
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#7F7F7F",
+            "fontFamily": "Nunito-SemiBold",
+            "fontSize": 14,
+            "marginBottom": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      2020-04-23 08:30
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#2E50D4",
+            "fontFamily": "Nunito-Bold",
+            "fontSize": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Observação:
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#7F7F7F",
+            "fontFamily": "Nunito-SemiBold",
+            "fontSize": 14,
+            "marginBottom": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Exemplo de consulta
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;

@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"], 
+      "@/__mocks__/*": ["./__mocks__/*"], 
+      "@/__tests__/*": ["__tests__/*"]
+      
+    },
+  }
+}
