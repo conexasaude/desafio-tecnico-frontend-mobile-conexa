@@ -37,6 +37,7 @@ export function formatTime(time: string): string {
   const hours = parseInt(parts[0], 10);
   const minutes = parseInt(parts[1], 10);
 
+  let formateMinutes = minutes.toString().padStart(2, '0');
   let formattedHours = hours.toString().padStart(2, '0');
 
   if (time.includes('PM') && hours !== 12) {
@@ -45,5 +46,5 @@ export function formatTime(time: string): string {
     formattedHours = '00';
   }
 
-  return `${formattedHours}:${minutes}`;
+  return `${formattedHours}:${formateMinutes}`;
 }
