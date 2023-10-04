@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigation } from '@react-navigation/native';
-import { routes } from '~/presentation/navigation/routes';
 import { makeRemoteAuthentication } from '~/main/factories/usecases';
 
 // Adapters
@@ -12,9 +10,10 @@ import { emailValidation } from '~/presentation/validators';
 
 // Types
 import { LoginFormInterface } from './types';
-import { StackNavigation } from '~/presentation/navigation/navigators/types';
+import { AuthContext } from '~/presentation/context';
 
 export function useLoginScreenViewController() {
+  const { setUser } = useContext(AuthContext);
   const [hasAuthenticationFailed, setHasAuthenticationFailed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -28,7 +27,6 @@ export function useLoginScreenViewController() {
       password: '',
     },
   });
-  const navigation = useNavigation<StackNavigation>();
   const emailValue = watch('email');
   const passwordValue = watch('password');
   const hasEmailError = errors.email?.type === 'validateEmail';
@@ -44,8 +42,8 @@ export function useLoginScreenViewController() {
       const response = await remoteAuthentication.execute(data);
 
       await setCurrentAccountAdapter(response.data);
+      setUser(response.data);
       setIsLoading(false);
-      navigation.navigate(routes.HomeScreen);
     } catch (error) {
       setIsLoading(false);
       setHasAuthenticationFailed(true);
