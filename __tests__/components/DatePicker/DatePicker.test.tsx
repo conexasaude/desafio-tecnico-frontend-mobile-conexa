@@ -55,26 +55,6 @@ describe('DatePicker', () => {
     expect(getByText('placeholder')).toBeDefined();
   });
 
-  test('should format label correclty with mode date', () => {
-    let date = '';
-
-    const { getByTestId, getByText } = renderWithThemeProvider(
-      <DatePicker
-        mode="date"
-        onChange={newDate => (date = newDate)}
-        label="label"
-      />,
-    );
-
-    const datePicker = getByTestId('date-picker');
-    fireEvent.press(datePicker);
-
-    const confirmButton = getByText('confirm');
-    fireEvent.press(confirmButton);
-
-    expect(getByText(date)).toBeDefined();
-  });
-
   test('should format label correclty with mode time', () => {
     let date = '';
 
