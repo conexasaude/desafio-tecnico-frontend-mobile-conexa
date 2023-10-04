@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScheduleAppointment should matches snapshot 1`] = `
+exports[`Sync should matches snapshot 1`] = `
 <View
   style={
     [

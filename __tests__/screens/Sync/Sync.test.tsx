@@ -5,7 +5,7 @@ import {
 } from '@/lib/functions/Testing';
 import { SyncScreen } from '@/screens/Sync';
 
-describe('ScheduleAppointment', () => {
+describe('Sync', () => {
   test('should render correctly', () => {
     renderWithThemeProvider(<SyncScreen />);
   });

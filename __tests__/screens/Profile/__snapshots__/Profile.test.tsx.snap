@@ -58,7 +58,9 @@ exports[`ProfileScreen should matches snapshot 1`] = `
           undefined,
         ]
       }
-    />
+    >
+      Maria Brown
+    </Text>
     <Text
       style={
         [
@@ -70,7 +72,9 @@ exports[`ProfileScreen should matches snapshot 1`] = `
           undefined,
         ]
       }
-    />
+    >
+      maria@gmail.com
+    </Text>
     <View
       style={
         [
