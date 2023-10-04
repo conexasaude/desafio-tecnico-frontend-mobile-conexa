@@ -6,6 +6,7 @@ import { DatePickerInput, TextInput, TimePickerInput } from '~/presentation/comp
 import { MainButton } from '~/presentation/components/buttons';
 import { DatePickerModal, TimePickerModal } from 'react-native-paper-dates';
 import { HelperText, Snackbar } from 'react-native-paper';
+import { TouchableOpacity, View } from 'react-native';
 
 // Styles
 import { Header, Title, ScreenContainer, SnackBarContainer, SubtitleContainer } from './styles';
@@ -46,9 +47,17 @@ export function CreateAppointmentScreen() {
         </SubtitleContainer>
       </Header>
 
-      <DatePickerInput value={date} onPress={() => setIsDatePickerVisible(true)} />
+      <TouchableOpacity onPress={() => setIsDatePickerVisible(true)}>
+        <View pointerEvents="none">
+          <DatePickerInput value={date} />
+        </View>
+      </TouchableOpacity>
 
-      <TimePickerInput value={time} onPress={() => setIsTimePickerVisible(true)} />
+      <TouchableOpacity onPress={() => setIsTimePickerVisible(true)}>
+        <View pointerEvents="none">
+          <TimePickerInput value={time} />
+        </View>
+      </TouchableOpacity>
 
       <Controller
         control={control}

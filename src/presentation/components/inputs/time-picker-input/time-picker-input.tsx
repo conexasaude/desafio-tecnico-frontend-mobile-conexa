@@ -7,12 +7,8 @@ import { TextInput } from 'react-native-paper';
 // Types
 import { TimePickerInputInterface } from './types';
 
-export function TimePickerInput({ value, onPress }: TimePickerInputInterface) {
+export function TimePickerInput({ value }: TimePickerInputInterface) {
   return (
-    <ReadonlyInput
-      value={value}
-      label="Horário"
-      iconRight={<TextInput.Icon icon="clock" onPress={onPress} />}
-    />
+    <ReadonlyInput value={value} label="Horário" iconRight={<TextInput.Icon icon="clock" />} />
   );
 }
