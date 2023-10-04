@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Helpers
+import { formatDate } from '~/presentation/helpers';
+
 // Components
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ActivityIndicator, FlatList } from 'react-native';
@@ -28,15 +31,20 @@ export function AppointmentsScreen() {
     isLoading,
     hasError,
     fetchAppointments,
+    formatTime,
   } = useAppointmentsScreenViewController();
 
   function renderItem({ item }: { item: AppointmentModel }) {
+    const { dataConsulta } = item;
+    const formattedTime = formatTime(dataConsulta);
+    const formattedDate = formatDate(dataConsulta);
+
     return (
       <AppointmentsButtonCardContainer>
         <AppointmentButtonCard
           patient={item.paciente}
-          date={item.dataConsulta}
-          time={item.dataConsulta}
+          date={formattedDate}
+          time={formattedTime}
           observation={item.observacao}
           onPress={() => goToAppointmentDetailsScreen(item.id)}
         />

@@ -3,6 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import { routes } from '~/presentation/navigation/routes';
 import { useTheme } from 'styled-components';
 
+// Helpers
+import { addZeroToLeft } from '~/presentation/helpers';
+
 // Types
 import { AppointmentModel } from '~/domain/models';
 import { makeRemoteGetAppointments } from '~/main/factories/usecases';
@@ -41,6 +44,18 @@ export function useAppointmentsScreenViewController() {
   function keyExtractor(item: AppointmentModel) {
     return item.id.toString();
   }
+
+  function formatTime(date: string) {
+    const newDate = new Date(date);
+    const hours = newDate.getHours();
+    const minutes = newDate.getMinutes();
+
+    const formattedHour = hours < 10 ? addZeroToLeft(hours) : hours.toString();
+    const formattedMinutes = minutes < 10 ? addZeroToLeft(minutes) : minutes.toString();
+
+    return `${formattedHour}:${formattedMinutes}`;
+  }
+
   return {
     appointments,
     theme,
@@ -49,5 +64,6 @@ export function useAppointmentsScreenViewController() {
     isLoading,
     hasError,
     fetchAppointments,
+    formatTime,
   };
 }
