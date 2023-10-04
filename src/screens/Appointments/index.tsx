@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useReduxSelector } from '@/hooks/useReduxSelector';
 import { useReduxDispatch } from '@/hooks/useReduxDispatch';
 import { FlatList } from 'react-native';
@@ -8,19 +8,35 @@ import { useNavigation } from '@react-navigation/native';
 import { NavPropsLogged } from '@/routes/logged';
 import { fetchAppointments } from '@/store/thunks/appointment.thunk';
 import { useToast } from 'react-native-toast-notifications';
+import { Loader } from '@/components/Loader';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import * as Styled from './styles';
 
 export function AppointmentsScreen() {
   const { show } = useToast();
   const { effects } = useTheme();
   const { navigate } = useNavigation<NavPropsLogged>();
-  const { appointments } = useReduxSelector(state => state.appointment);
+  const { appointments, loading, error } = useReduxSelector(
+    state => state.appointment,
+  );
 
   const dispatch = useReduxDispatch();
 
-  useEffect(() => {
+  const getAppointments = useCallback(() => {
     dispatch(fetchAppointments({ onError: show }));
-  }, [show, dispatch]);
+  }, [dispatch, show]);
+
+  useEffect(() => {
+    getAppointments();
+  }, [getAppointments]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!loading && error) {
+    return <ErrorBoundary tryAgain={getAppointments} />;
+  }
 
   return (
     <Styled.SafeArea>
