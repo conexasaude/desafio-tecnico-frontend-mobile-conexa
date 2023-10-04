@@ -8,3 +8,7 @@ export const setCurrentAccountAdapter = (account: AccountModel): Promise<void> =
 export const getCurrentAccountAdapter = (): Promise<string> => {
   return makeLocalSecureStorageAdapter().get('account') as Promise<string>;
 };
+
+export const deleteCurrentAccountAdapter = (): Promise<void> => {
+  return makeLocalSecureStorageAdapter().delete('account');
+};

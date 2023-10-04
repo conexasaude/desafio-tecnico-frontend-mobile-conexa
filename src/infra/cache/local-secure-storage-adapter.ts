@@ -9,4 +9,8 @@ export class LocalSecureStorageAdapter implements SetSecureStorage, GetSecureSto
   async get(key: string): Promise<any> {
     return await SecureStore.getItemAsync(key);
   }
+
+  async delete(key: string): Promise<void> {
+    return await SecureStore.deleteItemAsync(key);
+  }
 }
