@@ -8,9 +8,10 @@ import { DatePickerModal, TimePickerModal } from 'react-native-paper-dates';
 import { HelperText, Snackbar } from 'react-native-paper';
 
 // Styles
-import { ScreenContainer, SnackBarContainer } from './styles';
+import { Header, Title, ScreenContainer, SnackBarContainer, SubtitleContainer } from './styles';
 
 import { useCreateAppointmentScreenViewController } from './create-appointment-screen-view-controller';
+import { Heading } from '~/presentation/components';
 
 export function CreateAppointmentScreen() {
   const {
@@ -33,10 +34,18 @@ export function CreateAppointmentScreen() {
     setIsTimePickerVisible,
     setIsDatePickerVisible,
     setIsSuccessMessageVisible,
+    userName,
   } = useCreateAppointmentScreenViewController();
 
   return (
     <ScreenContainer>
+      <Header>
+        <Title type="H1">{`Bem vindo, ${userName}`}</Title>
+        <SubtitleContainer>
+          <Heading type="H2">Crie suas consultas abaixo</Heading>
+        </SubtitleContainer>
+      </Header>
+
       <DatePickerInput value={date} onPress={() => setIsDatePickerVisible(true)} />
 
       <TimePickerInput value={time} onPress={() => setIsTimePickerVisible(true)} />

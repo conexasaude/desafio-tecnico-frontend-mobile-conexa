@@ -12,13 +12,7 @@ import { ReadonlyInputInterface } from './types';
 export function ReadonlyInput({ label, value, iconRight }: ReadonlyInputInterface) {
   return (
     <InputContainer>
-      <PaperTextInput
-        mode="outlined"
-        label={label}
-        value={value}
-        editable={false}
-        right={iconRight}
-      />
+      <PaperTextInput mode="flat" label={label} value={value} editable={false} right={iconRight} />
     </InputContainer>
   );
 }

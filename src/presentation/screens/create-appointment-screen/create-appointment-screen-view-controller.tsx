@@ -1,5 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { Keyboard } from 'react-native';
 
 // Helpers
 import { addZeroToLeft, formatDate, formatTime } from '~/presentation/helpers';
@@ -7,8 +9,10 @@ import { addZeroToLeft, formatDate, formatTime } from '~/presentation/helpers';
 // Types
 import { CreateAppointmentFormInterface, TimeInterface } from './types';
 import { makeRemoteCreateAppointment } from '~/main/factories/usecases';
+import { AuthContext } from '~/presentation/context';
 
 export function useCreateAppointmentScreenViewController() {
+  const { user } = useContext(AuthContext);
   const [rawDate, setRawDate] = useState(undefined);
   const [isDatePickerVisible, setIsDatePickerVisible] = useState(false);
   const [time, setTime] = useState('');
@@ -28,6 +32,7 @@ export function useCreateAppointmentScreenViewController() {
   const isTimeFieldEmpty = time === '';
   const isMainButtonDisabled =
     pacienteValue === '' || observacao === '' || isTimeFieldEmpty || isLoading;
+  const userName = user?.nome;
 
   function resetInputs() {
     reset();
@@ -54,6 +59,7 @@ export function useCreateAppointmentScreenViewController() {
   async function createAppointment(data: CreateAppointmentFormInterface) {
     setIsLoading(true);
     setHasCreateAppointmentFailed(false);
+    Keyboard.dismiss();
     const remoteCreateAppointment = makeRemoteCreateAppointment();
 
     try {
@@ -115,5 +121,6 @@ export function useCreateAppointmentScreenViewController() {
     setIsTimePickerVisible,
     setIsDatePickerVisible,
     setIsSuccessMessageVisible,
+    userName,
   };
 }
