@@ -10,7 +10,8 @@ import { HelperText } from 'react-native-paper';
 import { useLoginScreenViewController } from './login-screen-view-controller';
 
 // Styles
-import { ScreenContainer } from './styles';
+import { ScreenContainer, StyledImage, Header } from './styles';
+import { Heading } from '~/presentation/components';
 
 export function LoginScreen() {
   const {
@@ -23,9 +24,14 @@ export function LoginScreen() {
     emailValidation,
     hasEmailError,
   } = useLoginScreenViewController();
+  const conexaSaudeLogo = '../../../../assets/images/conexa-saude-logo.png';
 
   return (
     <ScreenContainer>
+      <Header>
+        <StyledImage source={require(conexaSaudeLogo)} alt="Lista vazia" />
+        <Heading type="H2">Bem vindo! Utilize seu e-mail e senha para logar</Heading>
+      </Header>
       <Controller
         control={control}
         rules={{

@@ -10,3 +10,19 @@ export const ScreenContainer = styled.View`
     `;
   }};
 `;
+
+export const Header = styled.View`
+  ${({ theme }) => {
+    return css`
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: ${theme.metrics.tripleSpace}px;
+    `;
+  }};
+`;
+
+export const StyledImage = styled.Image`
+  width: 80%;
+  height: 100px;
+`;
