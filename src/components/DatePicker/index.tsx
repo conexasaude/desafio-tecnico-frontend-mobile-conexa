@@ -4,6 +4,8 @@ import * as Styled from './styles';
 import { TouchableOpacityProps, ViewStyle } from 'react-native';
 import { useTheme } from '@emotion/react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { formatDateToLocale, formatDateToISO, formatTime } from '@/lib/utils';
+import { Platform } from 'react-native';
 
 interface DatePickerProps extends TouchableOpacityProps {
   placeholder?: string;
@@ -32,8 +34,11 @@ export function DatePicker({
       return placeholder;
     }
 
-    const dateFormat = selectedDate.toISOString().substring(0, 10);
-    const timeFormat = selectedDate.toISOString().substring(11, 16);
+    const dateFormat = formatDateToLocale(
+      selectedDate.toLocaleDateString(),
+      Platform.OS.toUpperCase(),
+    );
+    const timeFormat = formatTime(selectedDate.toLocaleTimeString());
 
     switch (mode) {
       case 'date':
@@ -47,7 +52,11 @@ export function DatePicker({
 
   useEffect(() => {
     if (onChange && formatDate !== placeholder) {
-      onChange(formatDate);
+      if (mode === 'date') {
+        onChange(formatDateToISO(formatDate));
+      } else {
+        onChange(formatDate);
+      }
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
