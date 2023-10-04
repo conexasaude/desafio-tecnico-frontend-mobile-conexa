@@ -85,6 +85,8 @@ export function DatePicker({
         date={selectedDate ?? new Date()}
         minimumDate={mode !== 'time' ? new Date() : undefined}
         mode={mode}
+        cancelText="Cancelar"
+        confirmText="Confirmar"
         onConfirm={date => {
           setOpen(false);
           setSelectedDate(date);
