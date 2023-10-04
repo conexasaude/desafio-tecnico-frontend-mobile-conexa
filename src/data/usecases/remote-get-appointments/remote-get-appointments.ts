@@ -1,5 +1,5 @@
 import { HttpClient, HttpStatusCode } from '~/data/protocols/http';
-import { UnexpectedError } from '~/domain/errors';
+import { AccessDeniedError, UnexpectedError } from '~/domain/errors';
 import { AppointmentModel } from '~/domain/models';
 import { GetAppointments } from '~/domain/usecases';
 
@@ -18,6 +18,8 @@ export class RemoteGetAppointments implements GetAppointments {
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         return httpResponse.body;
+      case HttpStatusCode.forbidden:
+        throw new AccessDeniedError();
       default:
         throw new UnexpectedError();
     }

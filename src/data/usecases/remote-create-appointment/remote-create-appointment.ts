@@ -1,5 +1,5 @@
 import { HttpClient, HttpStatusCode } from '~/data/protocols/http';
-import { UnexpectedError } from '~/domain/errors';
+import { AccessDeniedError, UnexpectedError } from '~/domain/errors';
 import { AppointmentModel } from '~/domain/models';
 import { CreateAppointmentParam, CreateAppointment } from '~/domain/usecases';
 
@@ -21,6 +21,8 @@ export class RemoteCreateAppointment implements CreateAppointment {
         return httpResponse.body;
       case HttpStatusCode.created:
         return httpResponse.body;
+      case HttpStatusCode.forbidden:
+        throw new AccessDeniedError();
       default:
         throw new UnexpectedError();
     }
