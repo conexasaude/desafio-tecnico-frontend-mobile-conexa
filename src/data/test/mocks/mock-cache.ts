@@ -8,6 +8,6 @@ export class GetSecureStorageSpy implements GetSecureStorage {
 
   get(key: string): any {
     this.key = key;
-    return this.value;
+    return JSON.stringify(this.value);
   }
 }
