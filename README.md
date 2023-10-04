@@ -23,7 +23,7 @@ Algumas estapas são necessárias para instalar e rodar esse projeto:
 
 1. Clonar ou baixar o projeto no github através do link: https://github.com/luizhmp/desafio-tecnico-frontend-mobile-conexa.git;
 2. Instalar expo no seu computador através do comando yarn add expo no seu terminal. Caso seja necessário, acesse https://docs.expo.dev/more/expo-cli/ para mais informações sobre como instalar o expo;
-3. No seu terminal, navegue até a pasta do projeto e inicie o projeto utilizando o comando yarn start ou npm start;
+3. No seu terminal, navegue até a pasta do projeto e inicie-o utilizando o comando yarn start ou npm start;
 4. Após terminar de executar o comando, aperte 'i' para abrir um emulador iOS ou 'a' para abrir um emulador android;
 5. Se quiser utilizar um dispositivo físico para testes ao invés do emulador, baixe o aplicativo Expo na Google Play ou Apple Store. Após o download, abra-o e escaneie o QR code que aparece após utilizar o comando npm start ou yarn start. Para utilizar um emulador, siga os passos em https://reactnative.dev/docs/environment-setup;
 
