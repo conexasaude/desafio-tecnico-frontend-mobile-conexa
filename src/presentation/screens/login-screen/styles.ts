@@ -23,6 +23,6 @@ export const Header = styled.View`
 `;
 
 export const StyledImage = styled.Image`
-  width: 80%;
+  width: 85%;
   height: 100px;
 `;
