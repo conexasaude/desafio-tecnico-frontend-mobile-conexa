@@ -1,6 +1,6 @@
 import { RemoteGetAppointments } from '~/data/usecases';
 import { HttpStatusCode } from '~/data/protocols/http';
-import { UnexpectedError } from '~/domain/errors';
+import { AccessDeniedError, UnexpectedError } from '~/domain/errors';
 import { HttpClientSpy } from '~/data/test/mocks';
 
 import faker from 'faker';
@@ -51,6 +51,17 @@ describe('RemoteGetAppointments', () => {
     const promise = sut.execute();
 
     await expect(promise).rejects.toThrow(new UnexpectedError());
+  });
+
+  test('Should throw AccessDenied if HttpClient returns 403', async () => {
+    const { sut, httpClientSpy } = makeSut();
+    httpClientSpy.response = {
+      statusCode: HttpStatusCode.forbidden,
+    };
+
+    const promise = sut.execute();
+
+    await expect(promise).rejects.toThrow(new AccessDeniedError());
   });
 
   test('Should throw UnexpectedError if HttpClient returns 404', async () => {
