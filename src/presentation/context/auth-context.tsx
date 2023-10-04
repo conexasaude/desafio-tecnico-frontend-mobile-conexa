@@ -3,12 +3,13 @@ import { getCurrentAccountAdapter } from '~/main/adapters';
 
 // Types
 import { AuthContextInterface } from './types';
+import { AccountModel } from '~/domain/models';
 
 export const AuthContext = createContext<AuthContextInterface>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState<AccountModel | undefined>(undefined);
 
   async function isSignedIn() {
     try {
@@ -26,5 +27,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     void isSignedIn();
   }, []);
 
-  return <AuthContext.Provider value={{ isLoading, user }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ isLoading, user, setUser }}>{children}</AuthContext.Provider>
+  );
 };
