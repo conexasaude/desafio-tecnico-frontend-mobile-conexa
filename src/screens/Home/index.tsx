@@ -29,11 +29,13 @@ export default function Home({ navigation }: Props) {
       <OptionsContainer>
         <OptionCardContainer>
           <OptionCard
+            testID="appointment-card-list"
             onPress={() => navigation.navigate('AppointmentList')}
             text='Lista de consultas'
             icon={<MaterialCommunityIcons name="clipboard-list" size={36} color="#FFF" />}
           />
           <OptionCard
+            testID="new-appointment"
             onPress={() => navigation.navigate('NewAppointment')}
             text='Nova consulta'
             icon={<MaterialCommunityIcons name="clipboard-plus" size={36} color="#FFF" />}

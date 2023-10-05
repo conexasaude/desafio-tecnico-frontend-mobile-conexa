@@ -6,12 +6,13 @@ interface OptionCardProps {
     text: string
     icon: ReactNode
     onPress?: null | ((event: GestureResponderEvent) => void) | undefined;
+    testID: string
 }
 
-export default function OptionCard({ text, icon, onPress }: OptionCardProps) {
+export default function OptionCard({ text, icon, onPress, testID }: OptionCardProps) {
 
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} testID={testID}>
       <Container>
         {icon}
         <CardText>{text}</CardText>
