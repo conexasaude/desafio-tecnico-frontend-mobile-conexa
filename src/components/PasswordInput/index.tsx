@@ -11,12 +11,14 @@ export default function PasswordInput({ value, ...rest }: TextInputProps) {
             <Label>Senha</Label>
             <InputContainer>
                 <CustomInput
+                    testID='password-custom-input'
                     value={value}
                     secureTextEntry={secure}
                     {...rest}
                 />
                 
                 <IconButton
+                    testID='show-password-button'
                     onPress={() => setSecure(!secure)}
                     disabled={value === ''}
                 >

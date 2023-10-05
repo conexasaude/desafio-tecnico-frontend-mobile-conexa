@@ -23,26 +23,25 @@ const Modal = ({ isVisible, changeVisibility, backHome, resetForm }: ModalProps)
       <CenteredView>
         <ModalView>
           <ModalTitle>Consulta cadastrada!</ModalTitle>
+			<ButtonContainer>
+				<ButtonNewAppointment
+					onPress={() => {
+						changeVisibility(!isVisible)
+						resetForm()
+					}}
+				>
+					<NewButtonText>Criar outra consulta</NewButtonText>
+				</ButtonNewAppointment>
 
-					<ButtonContainer>
-						<ButtonNewAppointment
-							onPress={() => {
-								changeVisibility(!isVisible)
-								resetForm()
-							}}
-						>
-							<NewButtonText>Criar outra consulta</NewButtonText>
-						</ButtonNewAppointment>
-
-						<ButtonBack 
-							onPress={() => {
-								changeVisibility(!isVisible)
-								backHome()
-							}}
-						>
-							<BackButtonText>Voltar à Home</BackButtonText>
-						</ButtonBack>
-					</ButtonContainer>
+				<ButtonBack 
+					onPress={() => {
+						changeVisibility(!isVisible)
+						backHome()
+					}}
+				>
+					<BackButtonText>Voltar à Home</BackButtonText>
+				</ButtonBack>
+			</ButtonContainer>
         </ModalView>
       </CenteredView>
     </RNModal>
