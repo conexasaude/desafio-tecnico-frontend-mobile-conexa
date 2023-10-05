@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Platform, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView } from 'react-native';
+import { Platform, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView, Alert } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Container, Form, SVGContainer, Title } from './styles';
@@ -23,7 +23,7 @@ export default function Login({ navigation }: Props) {
       await getAuthUser(email, password)
       navigation.navigate('Home')
     } catch (error) {
-      alert(error)
+      Alert.alert(String(error))
     }
   }
 
@@ -72,6 +72,7 @@ export default function Login({ navigation }: Props) {
             />
 
             <Button
+              testID="login-button"
               onPress={login}
               label="Login"
             />
