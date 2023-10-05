@@ -1,4 +1,4 @@
-import { View, TextInputProps, Pressable } from 'react-native';
+import { View, TextInputProps } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { InputContainer, CustomInput, Label, IconButton } from './styles';
 import { useState } from 'react';
@@ -15,6 +15,7 @@ export default function PasswordInput({ value, ...rest }: TextInputProps) {
                     secureTextEntry={secure}
                     {...rest}
                 />
+                
                 <IconButton
                     onPress={() => setSecure(!secure)}
                     disabled={value === ''}

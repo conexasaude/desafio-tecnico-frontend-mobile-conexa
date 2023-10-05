@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Platform, Text, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView, ScrollView, View, TextInput } from 'react-native';
+import { Platform, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Container, Form, SVGContainer, Title } from './styles';
@@ -45,36 +45,38 @@ export default function Login({ navigation }: Props) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
       >
-          <Container>
-            <SVGContainer>
-              <SvgUri
-                width="100%"
-                height="50px"
-                uri="https://raw.githubusercontent.com/conexasaude/desafio-tecnico-frontend-mobile-conexa/b2e27512e27c5b718a20c9778719d902bafc989e/img/logo-conexa.svg"
-              />
-            </SVGContainer>
+        <Container>
+          <SVGContainer>
+            <SvgUri
+              width="100%"
+              height="50px"
+              uri="https://raw.githubusercontent.com/conexasaude/desafio-tecnico-frontend-mobile-conexa/b2e27512e27c5b718a20c9778719d902bafc989e/img/logo-conexa.svg"
+            />
+          </SVGContainer>
+          
+          <Form>
+            <Title>Acesse sua conta</Title>
             
-            <Form>
-              <Title>Acesse sua conta</Title>
-              
-              <Input
-                label="Email"
-                onChangeText={setEmail}
-                value={email}
-                placeholder='exemplo@conexa.com'
-                autoCapitalize="none"
-              />
-              <PasswordInput
-                onChangeText={setPassword}
-                value={password}
-                placeholder='Senha'
-              />
-              <Button
-                onPress={login}
-                label="Login"
-              />
-            </Form>
-          </Container>
+            <Input
+              label="Email"
+              onChangeText={setEmail}
+              value={email}
+              placeholder='exemplo@conexa.com'
+              autoCapitalize="none"
+            />
+
+            <PasswordInput
+              onChangeText={setPassword}
+              value={password}
+              placeholder='Senha'
+            />
+
+            <Button
+              onPress={login}
+              label="Login"
+            />
+          </Form>
+        </Container>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
