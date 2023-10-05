@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { FontAwesome } from '@expo/vector-icons';
 import RootStackParamList from '../../types/rootStackParamList';
-import { formatWeekdayDateTime } from '../../utils/dateFormat';
+import formatsDate from '../../utils/formatsDate';
 import { Container, Field, Header, HeaderText, Label, Observation, TextContainer } from './styles';
 import { useEffect } from 'react';
 
@@ -22,7 +22,7 @@ export default function AppointmentDetails({ route, navigation }: Props) {
 					<FontAwesome name="user-circle-o" size={72} color="black" />
 				</View>
 				<TextContainer>
-					<HeaderText>{`${formatWeekdayDateTime(appointment.dataConsulta)}`}</HeaderText>
+					<HeaderText>{`${formatsDate(appointment.dataConsulta, 'weekday-date-time')}`}</HeaderText>
 					<HeaderText>{appointment.paciente}</HeaderText>
 				</TextContainer>
 			</Header>

@@ -1,7 +1,7 @@
 import { GestureResponderEvent, Pressable } from 'react-native';
 import { Container, Pacient, AppointmentDate, Field, Title, Header } from './styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { formatDayMonthYear, formatHourMinute } from '../../utils/dateFormat';
+import formatsDate from '../../utils/formatsDate';
 
 interface AppointmentCardProps {
     id: string
@@ -17,7 +17,7 @@ export default function AppointmentCard({ id, date, observation, onPress, pacien
     <Container id={id} onPress={onPress}>
         <Header>
             <Title>Consulta #{id}</Title>
-            <AppointmentDate>{formatDayMonthYear(date)}</AppointmentDate>
+            <AppointmentDate>{formatsDate(date, 'day-month-year')}</AppointmentDate>
         </Header>
         <Field>
             <MaterialCommunityIcons name="account" size={20} color="#FFF" />
@@ -25,7 +25,7 @@ export default function AppointmentCard({ id, date, observation, onPress, pacien
         </Field>
         <Field>
             <MaterialCommunityIcons name="clock" size={20} color="#FFF" />
-            <AppointmentDate>{formatHourMinute(date)}</AppointmentDate>
+            <AppointmentDate>{formatsDate(date, 'time')}</AppointmentDate>
         </Field>
     </Container>
   );
