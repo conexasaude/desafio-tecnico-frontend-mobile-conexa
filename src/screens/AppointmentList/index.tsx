@@ -47,7 +47,6 @@ export default function AppointmentList({ navigation }: Props) {
 						onPress={() => navigateToDetails(item)} 
 						pacient={item.paciente}
 						date={item.dataConsulta}
-						observation={item.observacao}
 					/>
 				}
 				style={{ padding: 16 }}

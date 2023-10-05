@@ -1,6 +1,6 @@
-import { GestureResponderEvent, Pressable } from 'react-native';
-import { Container, Pacient, AppointmentDate, Field, Title, Header } from './styles';
+import { GestureResponderEvent } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Container, Pacient, AppointmentDate, Field, Title, Header } from './styles';
 import formatsDate from '../../utils/formatsDate';
 
 interface AppointmentCardProps {
@@ -8,10 +8,9 @@ interface AppointmentCardProps {
     onPress: (event: GestureResponderEvent) => void
     pacient: string
     date: string
-    observation: string
 }
 
-export default function AppointmentCard({ id, date, observation, onPress, pacient }: AppointmentCardProps) {
+export default function AppointmentCard({ id, date, onPress, pacient }: AppointmentCardProps) {
 
   return (
     <Container id={id} onPress={onPress}>
