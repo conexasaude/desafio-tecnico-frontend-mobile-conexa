@@ -3,7 +3,7 @@ import styled from "@emotion/native";
 export const CustomInput = styled.TextInput`
   height: ${props => (props.multiline ? '96px' : '46px')};
   border-width: 1px;
-  padding-horizontal: 8px;
+  padding: 8px;
   border-radius: 8px;
   margin-bottom: 16px;
   font-size: 16px;

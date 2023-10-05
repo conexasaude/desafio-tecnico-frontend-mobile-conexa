@@ -3,12 +3,12 @@ import styled from '@emotion/native'
 export const Container = styled.View`
   flex: 1;
   background-color: #1800AF;
+  justify-content: center;
   padding: 24px;
 `;
 
 export const SVGContainer = styled.View`
   justify-content: center;
-  margin-top: 25%;
 `;
 
 export const Form = styled.View`

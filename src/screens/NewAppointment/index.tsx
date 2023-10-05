@@ -1,4 +1,4 @@
-import { Keyboard, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import RootStackParamList from '../../types/rootStackParamList';
 import { Container, Label } from './styles';
@@ -11,11 +11,13 @@ import { AppointmentForm } from '../../types/appointment';
 import { newAppointment } from '../../services/appointment';
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'NewAppointment'>;
 
 export default function NewAppointment({ navigation }: Props) {
 	const [modalVisible, setModalVisible] = useState(false);
+	const [loading, setLoading] = useState(false)
 	const [form, setForm] = useState<AppointmentForm>({
 		idMedico: 1,
 		paciente: "",
@@ -33,9 +35,11 @@ export default function NewAppointment({ navigation }: Props) {
         throw new Error("Escolha um paciente")
       }
 
-      await newAppointment(form)
+			setLoading(true)
+			await newAppointment(form)
 			setModalVisible(true)
-    } catch (error) {
+			setLoading(false)
+		} catch (error) {
       alert(error)
     }
   }
@@ -54,16 +58,21 @@ export default function NewAppointment({ navigation }: Props) {
 	}
 
 	return (
-		<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-			<SafeAreaView style={{ flex: 1 }}>
-
-				<Modal
-					isVisible={modalVisible}
-					changeVisibility={setModalVisible}
-					backHome={backHome}
-					resetForm={resetForm}
-				/>
+		<>
+			<Modal
+				isVisible={modalVisible}
+				changeVisibility={setModalVisible}
+				backHome={backHome}
+				resetForm={resetForm}
+			/>
 				
+			<Spinner
+				visible={loading}
+				textContent={'Enviando...'}
+				textStyle={{color: '#FFF'}}
+			/>
+
+			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<Container>
 					<Select
 						label="Paciente"
@@ -81,6 +90,8 @@ export default function NewAppointment({ navigation }: Props) {
 						placeholder='Observação'
 						multiline
 						numberOfLines={4}
+						returnKeyType="done"
+						blurOnSubmit={true}
 					/>
 
 					<Label>Data da consulta:</Label>
@@ -96,7 +107,7 @@ export default function NewAppointment({ navigation }: Props) {
 						label="Cadastrar"
 					/>
 				</Container>
-			</SafeAreaView>
-		</TouchableWithoutFeedback>
+			</TouchableWithoutFeedback>
+		</>
 	)
 }
