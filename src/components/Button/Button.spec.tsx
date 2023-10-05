@@ -3,10 +3,8 @@ import { render, screen } from '@testing-library/react-native'
 import Button from './'
 
 describe("Component: Button", () => {
-    const ButtonComponent = <Button label='Botão' onPress={jest.fn(() => Promise.resolve())} />
-
     it("should render button label", () => {
-        render(ButtonComponent)
+        render(<Button label='Botão' onPress={jest.fn(() => Promise.resolve())} />)
 
         const buttonLabel = screen.queryByText("Botão")
         expect(buttonLabel).toBeTruthy()
