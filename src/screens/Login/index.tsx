@@ -3,12 +3,12 @@ import { Platform, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidi
 import { SvgUri } from 'react-native-svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Container, Form, SVGContainer, Title } from './styles';
-import { useUser } from '../../hooks/UserContext';
 import RootStackParamList from '../../types/rootStackParamList';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
 import Button from '../../components/Button';
 import { useFocusEffect } from '@react-navigation/native';
+import { useUser } from '../../hooks/useUser';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 

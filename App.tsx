@@ -1,5 +1,5 @@
 import MainStack from './src/navigation/Stack'
-import { UserProvider } from './src/hooks/UserContext';
+import { UserProvider } from './src/contexts/UserContext';
 import { StatusBar } from 'react-native';
 
 export default function App() {

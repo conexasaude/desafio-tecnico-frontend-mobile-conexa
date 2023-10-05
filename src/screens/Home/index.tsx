@@ -2,8 +2,8 @@ import { ButtonText, Container, Header, HeaderText, LogoutButton, LogoutButtonCo
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import RootStackParamList from '../../types/rootStackParamList';
-import { useUser } from '../../hooks/UserContext';
 import OptionCard from '../../components/OptionCard';
+import { useUser } from '../../hooks/useUser';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

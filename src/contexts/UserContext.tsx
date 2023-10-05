@@ -1,25 +1,18 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/user';
 import { auth } from '../services/auth';
+import { Alert } from 'react-native';
 
 type StoredUser = Omit<User, 'token'>
 
-interface UserContextType {
+export interface UserContextType {
   user: StoredUser | null;
   getAuthUser: (email: string, password: string) => void;
   logout: () => void;
 }
 
-const UserContext = createContext<UserContextType | undefined>(undefined);
-
-export const useUser = () => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error('useUser deve ser usado dentro de um UserProvider');
-  }
-  return context;
-};
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
 interface UserProviderProps {
   children: ReactNode;
@@ -39,16 +32,16 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       // }
 
       const { nome, token } = await auth(email, password)
-      await AsyncStorage.setItem('token', token);
       setUser({ email, nome });
+      await AsyncStorage.setItem('token', token);
     } catch (error) {
-      alert(error)
+      Alert.alert(String(error))
     }
   }
 
   async function logout() {
-    await AsyncStorage.removeItem('token');
     setUser(null);
+    await AsyncStorage.removeItem('token');
   };
 
   return (
