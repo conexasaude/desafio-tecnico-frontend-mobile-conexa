@@ -18,6 +18,7 @@ export const InputContainer = styled.View`
 
 export const CustomInput = styled.TextInput`
   height: 48px;
+  font-size: ${props => props.theme.fontSizes.medium};
   border-radius: ${props => props.theme.borderRadius};
   flex: 1;
 `;
