@@ -5,7 +5,7 @@ export const Label = styled.Text`
   position: absolute;
   font-weight: 500;
   background-color: ${props => props.theme.colors.white};
-  top: -8px;
+  top: -10px;
   left: 8px;
   padding: 0 ${props => props.theme.padding.xs};
   z-index: 10000;
