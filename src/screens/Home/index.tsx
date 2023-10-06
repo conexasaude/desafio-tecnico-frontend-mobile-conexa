@@ -5,7 +5,7 @@ import RootStackParamList from '../../types/rootStackParamList';
 import OptionCard from '../../components/OptionCard';
 import { useUser } from '../../hooks/useUser';
 import theme from '../../theme/theme';
-import { StatusBar, View } from 'react-native';
+import { Alert, StatusBar, View } from 'react-native';
 import React, { useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -19,7 +19,7 @@ export default function Home({ navigation }: Props) {
       navigation.navigate('Login')
       await logout()
     } catch (error) {
-      alert(error)
+      Alert.alert('Erro', String(error).replace('Error:', ''))
     }
   }
 

@@ -1,4 +1,4 @@
-import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Alert, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import RootStackParamList from '../../types/rootStackParamList';
 import { Container, Label } from './styles';
@@ -33,16 +33,16 @@ export default function NewAppointment({ navigation }: Props) {
 	async function createNewAppointment() {
     try {
 			if(form.paciente === "") {
-        throw new Error("Escolha um paciente")
-      }
+				throw new Error("Escolha um paciente")
+			}
 
 			setLoading(true)
 			await newAppointment(form)
 			setModalVisible(true)
 			setLoading(false)
 		} catch (error) {
-      alert(error)
-    }
+			Alert.alert('Erro', String(error).replace('Error:', ''))
+		}
   }
 
 	function backHome() {

@@ -26,7 +26,7 @@ export default function Login({ navigation }: Props) {
       await getAuthUser(email, password)
       navigation.navigate('Home')
     } catch (error) {
-      Alert.alert(String(error))
+      Alert.alert('Erro', String(error).replace('Error:', ''))
     }
     setLoading(false)
   }

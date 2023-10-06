@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Modal as RNModal } from 'react-native';
+import { Modal as RNModal } from 'react-native';
 import { CenteredView, ModalView, ModalTitle, ButtonContainer, ButtonNewAppointment, ButtonBack, NewButtonText, BackButtonText } from './styles';
 
 interface ModalProps {
@@ -17,7 +17,6 @@ const Modal = ({ isVisible, changeVisibility, backHome, resetForm }: ModalProps)
       transparent={true}
       visible={isVisible}
       onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
         changeVisibility(!isVisible);
       }}>
       <CenteredView>
