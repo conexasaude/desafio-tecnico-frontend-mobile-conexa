@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native'
-
+import { screen } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 import Select from './'
 
 describe("Component: Select", () => {

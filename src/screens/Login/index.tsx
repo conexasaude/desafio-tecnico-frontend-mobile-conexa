@@ -23,8 +23,8 @@ export default function Login({ navigation }: Props) {
     setLoading(true)
     Keyboard.dismiss()
     try {
-      await getAuthUser(email, password)
       navigation.navigate('Home')
+      await getAuthUser(email, password)
     } catch (error) {
       Alert.alert('Erro', String(error).replace('Error:', ''))
     }

@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react-native'
+import { screen } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 
 import Button from './'
 

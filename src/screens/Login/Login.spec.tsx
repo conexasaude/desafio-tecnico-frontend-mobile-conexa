@@ -1,6 +1,6 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 
-import { UserProvider } from '../../contexts/UserContext';
 import Login from './'
 
 jest.mock('@react-navigation/native')
@@ -22,20 +22,20 @@ describe("Screen: Login", () => {
     const props: any = createTestProps({});
 
     it("should login user", async () => {
-        render(
-            <UserProvider>
-                <Login {...props} />
-            </UserProvider>
-        ); 
+        render(<Login {...props} />); 
 
         const emailInput = screen.getByPlaceholderText("exemplo@conexa.com")
-        fireEvent.changeText(emailInput, "email@example.com")
+        act(() => {
+            fireEvent.changeText(emailInput, "email@example.com")
+        })
 
         const passwordInput = screen.getByPlaceholderText("Senha")
-        fireEvent.changeText(passwordInput, "password")
+        act(() => {
+            fireEvent.changeText(passwordInput, "password")
+        })
 
         const loginButton = screen.getByTestId("login-button")
-        await waitFor(() =>{
+        await waitFor(() => {
             act(() => {
                 fireEvent.press(loginButton)
             })

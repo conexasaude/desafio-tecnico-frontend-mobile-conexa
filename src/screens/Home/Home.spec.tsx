@@ -1,6 +1,5 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native'
-
-import { UserProvider } from '../../contexts/UserContext';
+import { act, fireEvent, screen, waitFor } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 import Home from './'
 
 jest.mock('@react-navigation/native')
@@ -22,34 +21,24 @@ describe("Screen: Home", () => {
     const props: any = createTestProps({});
 
     beforeEach(() => {
-        render(
-            <UserProvider>
-                <Home {...props} />
-            </UserProvider>
-        ); 
+        render(<Home {...props} />); 
     })
 
     it("should navigate to AppointmentList", async () => {
         const listButton = screen.getByTestId("appointment-card-list")
-        fireEvent.press(listButton)
 
-        await waitFor(() =>{
-            act(() => {
-                fireEvent.press(listButton)
-            })
+        act(() => {
+            fireEvent.press(listButton)
         })
-        
+    
         expect(props.navigation.navigate).toHaveBeenCalledWith('AppointmentList')
     })
 
     it("should navigate to NewAppointment", async () => {
         const newAppointmentButton = screen.getByTestId("new-appointment")
-        fireEvent.press(newAppointmentButton)
 
-        await waitFor(() =>{
-            act(() => {
-                fireEvent.press(newAppointmentButton)
-            })
+        act(() => {
+            fireEvent.press(newAppointmentButton)
         })
         
         expect(props.navigation.navigate).toHaveBeenCalledWith('NewAppointment')

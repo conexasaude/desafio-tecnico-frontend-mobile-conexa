@@ -6,7 +6,7 @@ interface OptionCardProps {
   text: string
   icon: ReactNode
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
-  testID: string
+  testID?: string
 }
 
 export default function OptionCard({ text, icon, onPress, testID }: OptionCardProps) {

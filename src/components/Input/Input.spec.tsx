@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react-native'
-
+import { act, fireEvent, screen } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 import Input from './'
 
 describe("Component: Input", () => {
@@ -27,7 +27,11 @@ describe("Component: Input", () => {
 
     it("should change value", () => {
         const input = screen.getByPlaceholderText("Example")
-        fireEvent.changeText(input, 'New value');
+
+        act(() => {
+            fireEvent.changeText(input, 'New value');
+        })
+
         expect(setValue).toHaveBeenCalledWith('New value')
     })
 })

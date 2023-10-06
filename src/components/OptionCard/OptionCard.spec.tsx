@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react-native'
+import { screen } from '@testing-library/react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-
+import { render } from "../../__mocks__/utils/customRender"
 import OptionCard from './'
 
 describe("Component: OptionCard", () => {
@@ -9,10 +9,10 @@ describe("Component: OptionCard", () => {
     beforeEach(() => {
         component = render(
             <OptionCard
-            onPress={jest.fn()}
-            text='Option Text'
-            icon={<MaterialCommunityIcons name="clipboard-list" testID="icon" />}
-          />
+                onPress={jest.fn()}
+                text='Option Text'
+                icon={<MaterialCommunityIcons name="clipboard-list" testID="icon" />}
+            />
         );
     });
 

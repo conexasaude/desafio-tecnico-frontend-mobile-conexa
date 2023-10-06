@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react-native'
-
+import { act, fireEvent, screen, waitFor } from '@testing-library/react-native'
+import { render } from "../../__mocks__/utils/customRender"
 import PasswordInput from './'
 
 describe("Component: PasswordInput", () => {
@@ -23,11 +23,14 @@ describe("Component: PasswordInput", () => {
         expect(placeholderText).toBeTruthy()
     })
 
-    it("should show password value", () => {
+    it("should show password value", async() => {
         const showPasswordButton = screen.queryByTestId("show-password-button")
         const input = screen.queryByTestId("password-custom-input")
+    
+        act(() => {
+            fireEvent.press(showPasswordButton)
+        })
 
-        fireEvent.press(showPasswordButton)
         expect(input.props.secureTextEntry).toBe(false)
     })
 
