@@ -9,15 +9,18 @@ import PasswordInput from '../../components/PasswordInput';
 import Button from '../../components/Button';
 import { useFocusEffect } from '@react-navigation/native';
 import { useUser } from '../../hooks/useUser';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 export default function Login({ navigation }: Props) {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const { getAuthUser } = useUser();
 
   async function login() {
+    setLoading(true)
     Keyboard.dismiss()
     try {
       await getAuthUser(email, password)
@@ -25,6 +28,7 @@ export default function Login({ navigation }: Props) {
     } catch (error) {
       Alert.alert(String(error))
     }
+    setLoading(false)
   }
 
   useFocusEffect(
@@ -45,6 +49,11 @@ export default function Login({ navigation }: Props) {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
       >
+        <Spinner
+          visible={loading}
+          textContent={'Carregando...'}
+          textStyle={{color: '#FFF'}}
+        />
         <Container>
           <SVGContainer>
             <SvgUri

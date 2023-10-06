@@ -22,21 +22,17 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<StoredUser | null>(null);
 
   async function getAuthUser(email: string, password: string) {
-    try {
-      // if(email === "") {
-      //   throw new Error("Digite um email")
-      // }
-
-      // if(password === "") {
-      //   throw new Error("Digite uma senha")
-      // }
-
-      const { nome, token } = await auth(email, password)
-      setUser({ email, nome });
-      await AsyncStorage.setItem('token', token);
-    } catch (error) {
-      Alert.alert(String(error))
+    if (email === "") {
+      throw new Error("Digite um email");
     }
+  
+    if (password === "") {
+      throw new Error("Digite uma senha");
+    }
+  
+    const { nome, token } = await auth(email, password);
+    setUser({ email, nome });
+    await AsyncStorage.setItem('token', token);
   }
 
   async function logout() {

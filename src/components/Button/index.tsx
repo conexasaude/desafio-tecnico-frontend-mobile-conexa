@@ -4,7 +4,7 @@ interface ButtonProps {
   onPress: () => Promise<void>
   label: string
   disabled?: boolean
-  testID: string
+  testID?: string
 }
 
 export default function Login({ label, onPress, disabled, testID }: ButtonProps) {
