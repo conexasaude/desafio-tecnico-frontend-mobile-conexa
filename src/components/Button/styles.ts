@@ -5,7 +5,7 @@ export const ButtonContainer = styled.Pressable`
   justify-content: center;
   margin-top: 16px;
   padding-vertical: 12px;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius};
   elevation: 3;
   background-color: #1800af;
 `;

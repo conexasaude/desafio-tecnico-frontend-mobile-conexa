@@ -7,12 +7,12 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius};
 `
 
 export const CardText = styled.Text`
   font-size: 24px;
-  color: #FFF;
+  color: ${props => props.theme.colors.white};
   font-weight: 600;
 `
 

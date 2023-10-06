@@ -1,16 +1,20 @@
+import { StatusBar } from 'react-native';
 import MainStack from './src/navigation/Stack'
 import { UserProvider } from './src/contexts/UserContext';
-import { StatusBar } from 'react-native';
+import theme from './src/theme/theme'
+import { ThemeProvider } from '@emotion/react';
 
 export default function App() {
 
   return (
-    <UserProvider>
-      <StatusBar
-        animated={true}
-        backgroundColor="#61dafb"
-      />
-      <MainStack />
-    </UserProvider>
+    <ThemeProvider theme={theme}>
+      <UserProvider>
+        <StatusBar
+          animated={true}
+          backgroundColor="#61dafb"
+        />
+        <MainStack />
+      </UserProvider>
+    </ThemeProvider>
   );
 }

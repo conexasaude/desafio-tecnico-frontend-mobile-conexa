@@ -10,7 +10,7 @@ export const CenteredView = styled.View`
 export const ModalView = styled.View`
   margin: 20px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius};
   padding: 35px;
   align-items: center;
   shadow-color: #000;
@@ -24,7 +24,7 @@ export const ButtonContainer = styled.View`
 `;
 
 export const Button = styled.TouchableOpacity`
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius};
   padding: 10px;
 `;
 
@@ -51,6 +51,6 @@ export const BackButtonText = styled.Text`
 export const ModalTitle = styled.Text`
   margin-bottom: 15px;
   text-align: center;
-  font-size: 16px;
+  border-radius: ${props => props.theme.fontSizes.medium}
   font-weight: bold;
 `;

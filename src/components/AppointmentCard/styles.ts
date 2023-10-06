@@ -1,9 +1,9 @@
 import styled from "@emotion/native";
 
 export const Container = styled.Pressable`
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius};
   background-color: #1800AF;
-  padding: 8px;
+  padding: ${props => props.theme.padding.md};
   margin-bottom: 16px;
 `;
 
@@ -15,22 +15,22 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   font-size: 18px;
-  color: #FFF;
+  color: ${props => props.theme.colors.white};
 `
 
 export const Field = styled.View`
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  color: #FFF;
+  color: ${props => props.theme.colors.white};
 `;
 
 export const Pacient = styled.Text`
-  font-size: 16px;
-  color: #FFF;
+  border-radius: ${props => props.theme.fontSizes.medium}
+  color: ${props => props.theme.colors.white};
 `;
 
 export const AppointmentDate = styled.Text`
-  font-size: 16px;
-  color: #FFF;
+  border-radius: ${props => props.theme.fontSizes.medium}
+  color: ${props => props.theme.colors.white};
 `;

@@ -2,7 +2,7 @@ import styled from '@emotion/native'
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #1800AF;
+  background-color: ${props => props.theme.colors.primary};
   justify-content: center;
   padding: 24px;
 `;
@@ -14,8 +14,8 @@ export const SVGContainer = styled.View`
 export const Form = styled.View`
   margin-top: 32px;
   padding: 16px;
-  background-color: #FFF;
-  border-radius: 8px;
+  background-color: ${props => props.theme.colors.white};
+  border-radius: ${props => props.theme.borderRadius};
 `;
 
 export const Title = styled.Text`

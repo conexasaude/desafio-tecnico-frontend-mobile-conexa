@@ -1,9 +1,12 @@
-import { ButtonText, Container, Header, HeaderText, LogoutButton, LogoutButtonContainer, OptionCardContainer, OptionsContainer, OptionText } from './styles';
+import { ButtonText, Container, Greeting, Header, LogoutButton, LogoutButtonContainer, CardList, OptionsContainer, OptionText, Username } from './styles';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons'; 
 import RootStackParamList from '../../types/rootStackParamList';
 import OptionCard from '../../components/OptionCard';
 import { useUser } from '../../hooks/useUser';
+import theme from '../../theme/theme';
+import { View } from 'react-native';
+import React from 'react';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -22,25 +25,33 @@ export default function Home({ navigation }: Props) {
   return (
     <Container>
 			<Header>
-        <HeaderText>Bem-vindo(a) {user!.nome}!</HeaderText>
+        <View>
+          <Greeting>Bem-vindo(a)</Greeting>
+          <Username>{user!.nome}!</Username>
+        </View>
+
+        <View>
+          <FontAwesome name="user-circle-o" size={72} color={theme.colors.white} />
+        </View>
       </Header>
       
-      <OptionText>Escolha uma das opções abaixo:</OptionText>
       <OptionsContainer>
-        <OptionCardContainer>
+        <OptionText>Escolha uma das opções abaixo:</OptionText>
+
+        <CardList>
           <OptionCard
             testID="appointment-card-list"
             onPress={() => navigation.navigate('AppointmentList')}
             text='Lista de consultas'
-            icon={<MaterialCommunityIcons name="clipboard-list" size={36} color="#FFF" />}
+            icon={<MaterialCommunityIcons name="clipboard-list" size={36} color={theme.colors.white} />}
           />
           <OptionCard
             testID="new-appointment"
             onPress={() => navigation.navigate('NewAppointment')}
             text='Nova consulta'
-            icon={<MaterialCommunityIcons name="clipboard-plus" size={36} color="#FFF" />}
+            icon={<MaterialCommunityIcons name="clipboard-plus" size={36} color={theme.colors.white} />}
           />
-        </OptionCardContainer>
+        </CardList>
 
         <LogoutButtonContainer>
           <LogoutButton onPress={backToLogin}>
