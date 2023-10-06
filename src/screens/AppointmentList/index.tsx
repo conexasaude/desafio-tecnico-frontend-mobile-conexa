@@ -1,4 +1,4 @@
-import { FlatList, View } from 'react-native';
+import { FlatList, KeyboardAvoidingView, Platform, View } from 'react-native';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useEffect, useState } from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -51,24 +51,29 @@ export default function AppointmentList({ navigation }: Props) {
 				textContent={'Carregando...'}
 				textStyle={{color: theme.colors.white}}
 			/>
-				
-			<Container>
-				<SearchInput value={search} onChangeText={setSearch} />
+			
+			<KeyboardAvoidingView
+				behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+				style={{ flex: 1 }}
+			>		
+				<Container>
+					<SearchInput value={search} onChangeText={setSearch} />
 
-				<FlatList
-					data={filterAppointments(appointments)}
-					renderItem={({item}) => 
-						<AppointmentCard
-							id={String(item.id)}
-							onPress={() => navigateToDetails(item)} 
-							pacient={item.paciente}
-							date={item.dataConsulta}
-						/>
-					}
-					style={{ paddingHorizontal: 16 }}
-				>
-				</FlatList>
-			</Container>
+					<FlatList
+						data={filterAppointments(appointments)}
+						renderItem={({item}) => 
+							<AppointmentCard
+								id={String(item.id)}
+								onPress={() => navigateToDetails(item)} 
+								pacient={item.paciente}
+								date={item.dataConsulta}
+							/>
+						}
+						style={{ paddingHorizontal: 16 }}
+					>
+					</FlatList>
+				</Container>
+			</KeyboardAvoidingView>
 		</>
 	)
 }
