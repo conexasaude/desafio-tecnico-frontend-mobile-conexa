@@ -5,12 +5,15 @@ declare module '@emotion/react' {
         colors: {
             primary: string;
             white: string;
+            black: string;
+            gray: string;
         };
         borderRadius: string;
         fontSizes: {
             small: string;
             medium: string;
             large: string;
+            xl: string;
         };
         spacing: {
             xs: string;

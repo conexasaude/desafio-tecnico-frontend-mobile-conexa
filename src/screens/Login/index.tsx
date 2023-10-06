@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { Platform, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView, Alert } from 'react-native';
+import { useState } from 'react';
+import { Platform, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Alert } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Container, Form, SVGContainer, Title } from './styles';
@@ -7,9 +7,9 @@ import RootStackParamList from '../../types/rootStackParamList';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
 import Button from '../../components/Button';
-import { useFocusEffect } from '@react-navigation/native';
 import { useUser } from '../../hooks/useUser';
 import Spinner from 'react-native-loading-spinner-overlay';
+import theme from '../../theme/theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -31,18 +31,6 @@ export default function Login({ navigation }: Props) {
     setLoading(false)
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      StatusBar.setBarStyle('light-content')
-
-      return () => {
-        setEmail('')
-        setPassword('')
-        StatusBar.setBarStyle('dark-content')
-      };
-    }, [])
-  )
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
@@ -52,7 +40,7 @@ export default function Login({ navigation }: Props) {
         <Spinner
           visible={loading}
           textContent={'Carregando...'}
-          textStyle={{color: '#FFF'}}
+          textStyle={{color: theme.colors.white}}
         />
         <Container>
           <SVGContainer>

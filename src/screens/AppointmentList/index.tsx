@@ -8,6 +8,7 @@ import RootStackParamList from '../../types/rootStackParamList';
 import AppointmentCard from '../../components/AppointmentCard';
 import SearchInput from '../../components/SearchInput';
 import { Container } from './styles';
+import theme from '../../theme/theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AppointmentList'>;
 
@@ -48,7 +49,7 @@ export default function AppointmentList({ navigation }: Props) {
 			<Spinner
 				visible={loading}
 				textContent={'Carregando...'}
-				textStyle={{color: '#FFF'}}
+				textStyle={{color: theme.colors.white}}
 			/>
 				
 			<Container>

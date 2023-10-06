@@ -12,6 +12,7 @@ import { newAppointment } from '../../services/appointment';
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
 import Spinner from 'react-native-loading-spinner-overlay';
+import theme from '../../theme/theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'NewAppointment'>;
 
@@ -69,7 +70,7 @@ export default function NewAppointment({ navigation }: Props) {
 			<Spinner
 				visible={loading}
 				textContent={'Enviando...'}
-				textStyle={{color: '#FFF'}}
+				textStyle={{color: theme.colors.white}}
 			/>
 
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

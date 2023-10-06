@@ -12,6 +12,7 @@ export default function App() {
         <StatusBar
           animated={true}
           backgroundColor="#61dafb"
+          barStyle="dark-content"
         />
         <MainStack />
       </UserProvider>

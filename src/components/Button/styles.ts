@@ -1,17 +1,16 @@
 import styled from "@emotion/native";
 
-export const ButtonContainer = styled.Pressable`
+export const ButtonContainer = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
-  padding-vertical: 12px;
+  margin-top: ${props => props.theme.margin.xl};
+  padding-vertical: ${props => props.theme.padding.md};
   border-radius: ${props => props.theme.borderRadius};
-  elevation: 3;
-  background-color: #1800af;
+  background-color: ${props => props.theme.colors.primary};
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 20px;
+  font-size: ${props => props.theme.fontSizes.large};
   line-height: 21px;
   font-weight: bold;
   letter-spacing: 0.25px;

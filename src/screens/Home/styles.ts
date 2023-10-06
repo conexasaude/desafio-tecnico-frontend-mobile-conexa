@@ -17,13 +17,13 @@ export const Header = styled.View`
 `
 
 export const Greeting = styled.Text`
-  border-radius: ${props => props.theme.fontSizes.medium}
+  font-size: ${props => props.theme.fontSizes.large};
   font-weight: 500;
   color: ${props => props.theme.colors.white};
 `
 
 export const Username = styled.Text`
-  font-size: 24px;
+  font-size: ${props => props.theme.fontSizes.xl};
   font-weight: 500;
   color: ${props => props.theme.colors.white};
 `
@@ -35,9 +35,9 @@ export const OptionsContainer = styled.View`
 `
 
 export const OptionText = styled.Text`
-  border-radius: ${props => props.theme.fontSizes.medium}
-  text-align: center;
+  font-size: ${props => props.theme.fontSizes.large};
   font-weight: 500;
+  text-align: center;
 `
 
 export const CardList = styled.View`
@@ -46,19 +46,19 @@ export const CardList = styled.View`
 `;
 
 export const LogoutButtonContainer = styled.View`
-  padding: 0 48px;
+  padding: 0 ${props => props.theme.padding.xl};
 `;
 
-export const LogoutButton = styled.Pressable`
-  padding: 16px;
-  background-color: #ebebeb;
+export const LogoutButton = styled.TouchableOpacity`
+  padding: ${props => props.theme.padding.md};
+  background-color: ${props => props.theme.colors.gray};
   border-radius: ${props => props.theme.borderRadius};
 `;
 
 export const ButtonText = styled.Text`
   font-size: 18px;
   text-align: center;
-  color: #5ac8fa;
+  color: ${props => props.theme.colors.primary};
   font-weight: bold;
 `
 

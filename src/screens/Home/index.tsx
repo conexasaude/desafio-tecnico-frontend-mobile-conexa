@@ -5,8 +5,9 @@ import RootStackParamList from '../../types/rootStackParamList';
 import OptionCard from '../../components/OptionCard';
 import { useUser } from '../../hooks/useUser';
 import theme from '../../theme/theme';
-import { View } from 'react-native';
-import React from 'react';
+import { StatusBar, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -21,6 +22,16 @@ export default function Home({ navigation }: Props) {
       alert(error)
     }
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      StatusBar.setBarStyle('light-content')
+
+      return () => {
+        StatusBar.setBarStyle('dark-content')
+      };
+    }, [])
+  )
 
   return (
     <Container>

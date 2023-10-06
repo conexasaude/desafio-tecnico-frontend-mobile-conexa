@@ -4,32 +4,29 @@ export const CenteredView = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 `;
 
 export const ModalView = styled.View`
-  margin: 20px;
-  background-color: white;
+  background-color:  ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.borderRadius};
-  padding: 35px;
+  padding: ${props => props.theme.padding.xl};
   align-items: center;
-  shadow-color: #000;
-  shadow-opacity: 0.25;
-  shadow-radius: 4px;
-  elevation: 5;
+  box-shadow: 0px 1px 2.22px rgba(0, 0, 0, 0.22);
 `;
 
 export const ButtonContainer = styled.View`
-  gap: 8px;
+  gap: 24px;
+  width: 100%;
 `;
 
 export const Button = styled.TouchableOpacity`
   border-radius: ${props => props.theme.borderRadius};
-  padding: 10px;
+  padding: ${props => props.theme.padding.md};
 `;
 
 export const ButtonNewAppointment = styled(Button)`
-  background-color: #5ac8fa;
+  background-color: ${props => props.theme.colors.primary};
 `;
 
 export const ButtonBack = styled(Button)`
@@ -37,20 +34,23 @@ export const ButtonBack = styled(Button)`
 `;
 
 export const NewButtonText = styled.Text`
-  color: white;
-  font-weight: bold;
+  color: ${props => props.theme.colors.white};
+  font-weight: 500;
   text-align: center;
+  font-size: ${props => props.theme.fontSizes.medium}
 `;
 
 export const BackButtonText = styled.Text`
-  color: #5ac8fa;
-  font-weight: bold;
+  color: ${props => props.theme.colors.primary};
+  font-weight: 500;
   text-align: center;
+  font-size: ${props => props.theme.fontSizes.medium}
 `;
 
 export const ModalTitle = styled.Text`
-  margin-bottom: 15px;
+  margin-bottom: ${props => props.theme.margin.lg};
   text-align: center;
-  border-radius: ${props => props.theme.fontSizes.medium}
   font-weight: bold;
+  color: ${props => props.theme.colors.black}
+  font-size: ${props => props.theme.fontSizes.large}
 `;

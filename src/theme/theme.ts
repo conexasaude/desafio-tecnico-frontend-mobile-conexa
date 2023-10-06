@@ -2,13 +2,16 @@ import { Theme } from "@emotion/react"
 
 const theme: Theme = {
 	colors: {
-		primary: '#1800AF',
+		primary: '#3cb4e7',
 		white: '#FFF',
+		black: '#020202',
+		gray: '#f7f7f7'
 	},
 	fontSizes: {
     small: '12px',
     medium: '16px',
     large: '20px',
+    xl: '24px',
   },
   spacing: {
     xs: '4px',

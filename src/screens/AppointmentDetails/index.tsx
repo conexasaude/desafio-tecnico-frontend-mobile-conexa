@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { FontAwesome } from '@expo/vector-icons';
 import RootStackParamList from '../../types/rootStackParamList';
 import formatsDate from '../../utils/formatsDate';
-import { Container, Field, Header, HeaderText, Label, Observation, TextContainer } from './styles';
+import { Container, Content, Field, FieldContainer, Header, FieldText, Label } from './styles';
 import { useEffect } from 'react';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AppointmentDetails'>;
@@ -21,16 +21,25 @@ export default function AppointmentDetails({ route, navigation }: Props) {
 				<View>
 					<FontAwesome name="user-circle-o" size={72} color="black" />
 				</View>
-				<TextContainer>
-					<HeaderText>{`${formatsDate(appointment.dataConsulta, 'weekday-date-time')}`}</HeaderText>
-					<HeaderText>{appointment.paciente}</HeaderText>
-				</TextContainer>
+				<FieldContainer>
+					<Field>
+						<Label>Paciente:</Label>
+						<FieldText>{appointment.paciente}</FieldText>
+					</Field>
+
+					<Field>
+						<Label>Data e hora: </Label>
+						<FieldText>{`${formatsDate(appointment.dataConsulta, 'weekday-date-time')}`}</FieldText>
+					</Field>
+				</FieldContainer>
 			</Header>
 				
-			<Field>
-				<Label>Observação: </Label>
-				<Observation>{appointment.observacao}</Observation>
-			</Field>
+			<Content>
+				<Field>
+					<Label>Observação: </Label>
+					<FieldText>{appointment.observacao}</FieldText>
+				</Field>
+			</Content>
 		</Container>
     )
 }

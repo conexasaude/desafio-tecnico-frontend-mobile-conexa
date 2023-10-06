@@ -1,13 +1,14 @@
 import { TextInputProps } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Container, CustomInput, IconContainer, InputContainer, } from './styles';
+import theme from '../../theme/theme';
 
 export default function SearchInput({ ...rest }: TextInputProps) {
     return (
         <Container>
             <InputContainer>
                 <IconContainer>
-                    <MaterialCommunityIcons name="magnify" size={24} color="black" />
+                    <MaterialCommunityIcons name="magnify" size={24} color="#C7C7CD" />
                 </IconContainer>
 
                 <CustomInput
