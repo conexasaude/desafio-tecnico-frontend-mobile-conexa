@@ -1,4 +1,4 @@
-import { GestureResponderEvent, Pressable, Text, TextInputProps, View } from 'react-native';
+import { GestureResponderEvent, Pressable, Text } from 'react-native';
 import { Label, Placeholder, Value, ValueContainer } from './styles';
 
 interface DatePickerProps {
@@ -21,7 +21,11 @@ export default function DatePicker({ label, value, onPress }: DatePickerProps) {
     }
     return (
         <Pressable onPress={onPress}>
-            <Label>{label}</Label>
+            <Label>
+                {label}
+                <Text style={{ color: 'red' }}> *</Text>
+            </Label>
+            
             <ValueContainer>
                 {value ? <Value>{valueFormat(value)}</Value> : <Placeholder>Selecione uma data</Placeholder> }
             </ValueContainer>

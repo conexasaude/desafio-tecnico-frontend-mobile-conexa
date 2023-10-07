@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Label } from './styles';
 
@@ -15,7 +15,10 @@ export default function Select({ label, items, value, setValue }: SelectProps) {
 
 	return (
 		<View style={{ zIndex: 1 }}>
-			<Label>{label}</Label>
+			<Label>
+				{label}
+				<Text style={{ color: 'red' }}> *</Text>
+			</Label>
 			
 			<DropDownPicker
 				open={open}
