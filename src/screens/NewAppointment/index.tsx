@@ -1,10 +1,9 @@
-import { Alert, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Alert, Keyboard, Pressable, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import RootStackParamList from '../../types/rootStackParamList';
-import { Container, Label } from './styles';
+import { Container } from './styles';
 import Input from '../../components/Input';
 import { useState } from 'react';
-import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import Select from '../../components/Select';
 import { pacients } from '../../utils/selectOptions';
 import { AppointmentForm } from '../../types/appointment';
@@ -13,6 +12,8 @@ import Button from '../../components/Button';
 import Modal from '../../components/Modal';
 import Spinner from 'react-native-loading-spinner-overlay';
 import theme from '../../theme/theme';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import DatePicker from '../../components/DatePicker';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'NewAppointment'>;
 
@@ -22,26 +23,41 @@ export default function NewAppointment({ navigation }: Props) {
 	const [form, setForm] = useState<AppointmentForm>({
 		idMedico: 1,
 		paciente: "",
-		dataConsulta: new Date(),
+		dataConsulta: null,
 		observacao: "",
 	})
+	const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
-  const onChange = (event: DateTimePickerEvent, date?: Date | undefined) => {
-    setForm({ ...form, dataConsulta: date! })
-  };
+	const showDatePicker = () => {
+	  setDatePickerVisibility(true);
+	};
+  
+	const hideDatePicker = () => {
+	  setDatePickerVisibility(false);
+	};
+  
+	const handleConfirm = (date: Date) => {
+		hideDatePicker()
+    setForm({ ...form, dataConsulta: date })
+	};
 
 	async function createNewAppointment() {
-    try {
+		setLoading(true)
+		try {
 			if(form.paciente === "") {
 				throw new Error("Escolha um paciente")
 			}
 
-			setLoading(true)
+			if(form.dataConsulta === null) {
+				throw new Error("Escolha uma data para a consulta")
+			}
+
 			await newAppointment(form)
 			setModalVisible(true)
-			setLoading(false)
 		} catch (error) {
 			Alert.alert('Erro', String(error).replace('Error:', ''))
+		} finally {
+			setLoading(false)
 		}
   }
 
@@ -53,7 +69,7 @@ export default function NewAppointment({ navigation }: Props) {
 		setForm({
 			idMedico: 1,
 			paciente: "",
-			dataConsulta: new Date(),
+			dataConsulta: null,
 			observacao: "",
 		})
 	}
@@ -95,12 +111,18 @@ export default function NewAppointment({ navigation }: Props) {
 						blurOnSubmit={true}
 					/>
 
-					<Label>Data da consulta:</Label>
-					<DateTimePicker
-						testID="dateTimePicker"
+					<DatePicker
+						label="Data da consulta"
 						value={form.dataConsulta}
+						onPress={showDatePicker}
+					/>
+
+					<DateTimePickerModal
+						isVisible={isDatePickerVisible}
 						mode="datetime"
-						onChange={onChange}
+						onConfirm={handleConfirm}
+						onCancel={hideDatePicker}
+						minimumDate={new Date()}
 					/>
 
 					<Button

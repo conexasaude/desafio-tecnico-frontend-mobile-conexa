@@ -6,9 +6,3 @@ export const Container = styled.KeyboardAvoidingView`
   padding: ${props => props.theme.padding.lg};
   gap: 24px;
 `;
-
-export const Label = styled.Text`
-  font-size: ${props => props.theme.fontSizes.medium};
-  font-weight: 500;
-`;
-

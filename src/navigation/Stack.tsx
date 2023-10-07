@@ -6,7 +6,6 @@ import Home from '../screens/Home';
 import AppointmentList from '../screens/AppointmentList';
 import AppointmentDetails from '../screens/AppointmentDetails';
 import NewAppointment from '../screens/NewAppointment';
-import { KeyboardAvoidingView, Platform } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 

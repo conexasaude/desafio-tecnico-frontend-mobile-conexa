@@ -13,6 +13,6 @@ export type Appointment = {
 export type AppointmentForm = {
     idMedico: number
     paciente: string
-	dataConsulta: Date
+	dataConsulta: Date | null
     observacao: string
 }
