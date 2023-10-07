@@ -7,13 +7,9 @@ export const Container = styled.View`
   padding: ${props => props.theme.padding.lg};
 `;
 
-export const SVGContainer = styled.View`
-  justify-content: center;
-`;
-
 export const Form = styled.View`
   margin-top: ${props => props.theme.margin.xl};
-  padding: ${props => props.theme.padding.md};
+  padding: ${props => props.theme.padding.lg} ${props => props.theme.padding.md};
   background-color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.borderRadius};
   box-shadow: 0px 1px 2.22px rgba(0, 0, 0, 0.22);

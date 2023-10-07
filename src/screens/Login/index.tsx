@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Platform, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Alert } from 'react-native';
-import { SvgUri } from 'react-native-svg';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Container, Form, SVGContainer, Title } from './styles';
+import { Container, Form, Title } from './styles';
 import RootStackParamList from '../../types/rootStackParamList';
 import Input from '../../components/Input';
 import PasswordInput from '../../components/PasswordInput';
@@ -10,13 +9,14 @@ import Button from '../../components/Button';
 import { useUser } from '../../hooks/useUser';
 import Spinner from 'react-native-loading-spinner-overlay';
 import theme from '../../theme/theme';
+import Logo from '../../components/Logo';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 export default function Login({ navigation }: Props) {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const { getAuthUser } = useUser();
 
   async function login() {
@@ -43,15 +43,9 @@ export default function Login({ navigation }: Props) {
           textStyle={{color: theme.colors.white}}
         />
         <Container>
-          <SVGContainer>
-            <SvgUri
-              width="100%"
-              height="50px"
-              uri="https://raw.githubusercontent.com/conexasaude/desafio-tecnico-frontend-mobile-conexa/b2e27512e27c5b718a20c9778719d902bafc989e/img/logo-conexa.svg"
-            />
-          </SVGContainer>
-          
           <Form>
+            <Logo />
+
             <Title>Acesse sua conta</Title>
             
             <Input
