@@ -20,7 +20,7 @@ describe("Component: Select", () => {
     });
 
     it("should render label", () => {
-        const labelText = screen.queryByText("Label")
+        const labelText = screen.queryByText("Label *")
         expect(labelText).toBeTruthy()
     })
 
