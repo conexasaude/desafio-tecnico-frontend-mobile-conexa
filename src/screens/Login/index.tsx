@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Platform, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Container, Form, Title } from './styles';
@@ -10,6 +10,7 @@ import { useUser } from '../../hooks/useUser';
 import Spinner from 'react-native-loading-spinner-overlay';
 import theme from '../../theme/theme';
 import Logo from '../../components/Logo';
+import { useFocusEffect } from '@react-navigation/native';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -24,6 +25,7 @@ export default function Login({ navigation }: Props) {
     Keyboard.dismiss()
     try {
       await getAuthUser(email, password)
+
       navigation.navigate('Home')
     } catch (error) {
       Alert.alert('Erro', String(error).replace('Error:', ''))
@@ -31,6 +33,15 @@ export default function Login({ navigation }: Props) {
       setLoading(false)
     }
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      return () => {
+        setEmail('')
+        setPassword('')
+      };
+    }, [])
+  )
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
