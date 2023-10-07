@@ -20,7 +20,6 @@ export default function PasswordInput({ value, ...rest }: TextInputProps) {
                 <IconButton
                     testID='show-password-button'
                     onPress={() => setSecure(!secure)}
-                    disabled={value === ''}
                 >
                     {secure ? (
                         <MaterialCommunityIcons name="eye" size={24} color="black" />
