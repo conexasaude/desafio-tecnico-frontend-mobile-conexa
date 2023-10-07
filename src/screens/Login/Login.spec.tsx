@@ -4,7 +4,9 @@ import { render } from "../../__mocks__/utils/customRender"
 import Login from './'
 
 jest.mock('@react-navigation/native')
-
+jest.mock('@react-native-async-storage/async-storage', () =>
+  require('@react-native-async-storage/async-storage/jest/async-storage-mock')
+);
 jest.mock('../../services/auth', () => ({
     auth: async (email: string, password: string) => ({
         nome: 'Username',
@@ -25,14 +27,10 @@ describe("Screen: Login", () => {
         render(<Login {...props} />); 
 
         const emailInput = screen.getByPlaceholderText("exemplo@conexa.com")
-        act(() => {
-            fireEvent.changeText(emailInput, "email@example.com")
-        })
+        fireEvent.changeText(emailInput, "email@example.com")
 
         const passwordInput = screen.getByPlaceholderText("Senha")
-        act(() => {
-            fireEvent.changeText(passwordInput, "password")
-        })
+        fireEvent.changeText(passwordInput, "password")
 
         const loginButton = screen.getByTestId("login-button")
         await waitFor(() => {

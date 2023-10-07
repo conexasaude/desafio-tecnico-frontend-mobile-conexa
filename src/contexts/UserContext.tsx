@@ -22,10 +22,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   async function getAuthUser(email: string, password: string) {
     if (email === "") {
+      console.log('email')
       throw new Error("Digite um email");
     }
   
     if (password === "") {
+      console.log('password')
       throw new Error("Digite uma senha");
     }
   
