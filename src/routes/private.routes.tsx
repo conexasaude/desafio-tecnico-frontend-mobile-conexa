@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import { SignIn } from '../screens/Private/SignIn'
+import { SignIn } from '@screens/Private/SignIn'
 
 export function PrivateRoutes() {
   const { Navigator, Screen } = createStackNavigator()
