@@ -9,5 +9,21 @@ module.exports = {
         path: '.env',
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: '.',
+        extensions: ['.ts', '.tsx'],
+        alias: {
+          '@assets': './src/assets',
+          '@components': './src/components',
+          '@http-client': './src/http-client',
+          '@routes': './src/routes',
+          '@schemas': './src/schemas',
+          '@screens': './src/screens',
+          '@theme': './src/theme',
+        },
+      },
+    ],
   ],
 }

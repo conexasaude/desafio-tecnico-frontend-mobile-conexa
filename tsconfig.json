@@ -1,15 +1,16 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "baseUrl" : "./src",
+    "strict": true,
+    "baseUrl": "./",
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@components/*": ["./components/*"],
-      "@http-client": ["./http-client"],
-      "@routes": ["./routes"],
-      "@schemas/*": ["./schemas/*"],
-      "@screens/*": ["./screens/*"],
-      "@theme": ["./theme"]
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@http-client": ["src/http-client"],
+      "@routes": ["src/routes"],
+      "@schemas/*": ["src/schemas/*"],
+      "@screens/*": ["src/screens/*"],
+      "@theme": ["src/theme"],
     }
   }
 }
