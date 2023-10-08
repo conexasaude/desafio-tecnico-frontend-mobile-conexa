@@ -1,30 +1,44 @@
-# Desafio Técnico Front-End Mobile Conexa
+<p align="left">
+  <h1>Desafio Front-end Mobile Conexa</h1>
+</p>
 
-Descrição:
 
-Precisamos construir um front onde nossos médicos de plantão consigam agendar atendimentos para os pacientes e listar os atendimentos agendados.
+  [![Author](https://img.shields.io/badge/author-lcsdiniz-3cb4e7)](https://www.linkedin.com/in/lcsdiniz/)
+  [![Languages](https://img.shields.io/github/languages/count/lcsdiniz/desafio-tecnico-frontend-mobile-conexa?color=3cb4e7)](#)
+  [![Stars](https://img.shields.io/github/stars/lcsdiniz/desafio-tecnico-frontend-mobile-conexa?color=3cb4e7)](https://github.com/lcsdiniz/desafio-tecnico-frontend-mobile-conexa/stargazers)
+## ℹ️ About 
+  Esse projeto tem como objetivo criar um aplicativo mobile utilizando react-native para que médicos da clínica Conexa Saúde consigam acessar e criar consultas. Para isso é necessária a autenticação via email e senha.
 
-Será necessário ter uma tela de login para que médicos da clínica Conexa Saúde consigam acessar a aplicação, utilizando email e senha (Podem realizar o login com qualquer usuário de teste).
-O response do login será um token de validação e o nome do médico.
+## 🛸 Technologies
+- [React Native](https://reactnative.dev/);
+- [Expo](https://expo.dev/);
+- [TypeScript](https://www.typescriptlang.org/);
+- [Axios](https://axios-http.com/);
+- [Testing Library](https://testing-library.com/);
+- [Jest](https://jestjs.io/).
 
-O médico poderá cadastrar, listar e detalhar uma consulta.
+## 🏁 Get started
+```bash
+# Clone this repository
+$ git clone https://github.com/lcsdiniz/desafio-tecnico-frontend-mobile-conexa.git
 
-Link da API: http://desafio.conexasaude.com.br/swagger-ui.html#/desafio-rest
+# Go into the repository
+$ cd desafio-tecnico-frontend-mobile-conexa
 
-Requisitos:
+# Install dependencies
+$ npm i
 
-* Desenvolver uma aplicação usando React Native;
-* Clonar este repositório, criar uma nova branch e abrir um merge request para master;
+# Run the app
+$ npx expo start
+```
 
-Serão avaliados os seguintes itens:
+## 🧪 Testing
+```bash
+# Run automated tests
+$ npm test
+```
 
-* Clareza do código;
-* Estrutura criada para a aplicação;
-* Se os requisitos descritos acima foram atendidos;
-* Se possui descrição clara de como montar o ambiente local e realizar os testes (se houverem);
+## 📮 Feedback
 
-Em caso de dúvidas sobre o desafio, entre em contato.
-
-Adicionamos um projeto do Postman para auxílio.
-
-Lembre-se que uma boa aplicação é bem testada.
+Feel free to send me feedback on [LinkedIn](https://www.linkedin.com/in/lcsdiniz/) or [file an
+issue](https://github.com/lcsdiniz/mangoes/issues/new). Feature requests are always welcome.
