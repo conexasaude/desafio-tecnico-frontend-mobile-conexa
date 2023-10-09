@@ -4,10 +4,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { userSchema } from '@schemas/userSchema'
 import { InputForm } from '@components/Form/InputForm'
+import { PasswordForm } from '@components/Form/PasswordForm'
 
 export function SignInForm() {
   const {
     control,
+    setFocus,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(userSchema),
@@ -19,16 +21,23 @@ export function SignInForm() {
       <InputForm
         control={control}
         error={errors.email?.message ? errors.email.message.toString() : ''}
+        onSubmitEditing={() => setFocus('password')}
+        keyboardType="email-address"
+        autoComplete="email"
+        autoCapitalize="none"
+        inputMode="email"
         name="email"
         label="E-mail"
         placeholder="email@exemplo.com.br"
+        returnKeyType="next"
       />
 
-      <InputForm
+      <PasswordForm
         control={control}
         error={
           errors.password?.message ? errors.password.message.toString() : ''
         }
+        autoCapitalize="none"
         name="password"
         label="Senha"
         placeholder="********"

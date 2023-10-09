@@ -25,11 +25,21 @@ export const Label = styled.Text<ErrorProps>`
   `};
 `
 
+export const ContainerRow = styled.View`
+  flex-direction: row;
+  align-items: center;
+`
+export const Icon = styled.TouchableOpacity`
+  position: absolute;
+  right: 16px;
+`
+
 export const TextInput = styled(RNTextInput)<ErrorProps>`
   padding: 16px;
   border-radius: 5px;
   font-size: 16px;
   height: 56px;
+  flex: 1;
 
   ${({ theme, error }) => css`
     color: ${theme.COLORS.BLACK};
