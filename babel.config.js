@@ -17,10 +17,13 @@ module.exports = {
         alias: {
           '@assets': './src/assets',
           '@components': './src/components',
+          '@hooks': './src/hooks',
           '@http-client': './src/http-client',
+          '@models': './src/models',
           '@routes': './src/routes',
           '@schemas': './src/schemas',
           '@screens': './src/screens',
+          '@store': './src/store',
           '@theme': './src/theme',
         },
       },

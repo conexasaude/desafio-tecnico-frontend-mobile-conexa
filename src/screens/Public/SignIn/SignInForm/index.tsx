@@ -6,9 +6,14 @@ import { userSchema } from '@schemas/userSchema'
 import { InputForm } from '@components/Form/InputForm'
 import { PasswordForm } from '@components/Form/PasswordForm'
 
-export function SignInForm() {
+interface SignInFormProps {
+  onSubmit: () => void
+}
+
+export function SignInForm({ onSubmit }: SignInFormProps) {
   const {
     control,
+    handleSubmit,
     setFocus,
     formState: { errors },
   } = useForm({
@@ -43,7 +48,7 @@ export function SignInForm() {
         placeholder="********"
       />
 
-      <Button title="Entrar" />
+      <Button title="Entrar" onPress={handleSubmit(onSubmit)} />
     </ContainerForm>
   )
 }

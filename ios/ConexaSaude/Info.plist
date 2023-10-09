@@ -26,14 +26,21 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
+			<key>NSAllowsArbitraryLoads</key>
+			<true/>
+			<key>NSExceptionDomains</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
+					<key>http://desafio.conexasaude.com.br</key>
+					<dict>
+							<key>NSExceptionAllowsInsecureHTTPLoads</key>
+							<true/>
+					</dict>
+					<key>localhost</key>
+					<dict>
+							<key>NSExceptionAllowsInsecureHTTPLoads</key>
+							<true/>
+					</dict>
 			</dict>
-		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
