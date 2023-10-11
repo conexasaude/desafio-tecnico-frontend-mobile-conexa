@@ -3,22 +3,25 @@ import { ThemeProvider } from '@emotion/react'
 import { theme } from '@theme'
 import { Routes } from '@routes'
 import { Provider } from 'react-redux'
-import { store } from '@store'
+import { store, persistor } from '@store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 export function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <SafeAreaView style={{ flex: 1 }}>
-          <StatusBar
-            barStyle="dark-content"
-            backgroundColor="transparent"
-            translucent
-          />
+      <PersistGate persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <SafeAreaView style={{ flex: 1 }}>
+            <StatusBar
+              barStyle="dark-content"
+              backgroundColor="transparent"
+              translucent
+            />
 
-          <Routes />
-        </SafeAreaView>
-      </ThemeProvider>
+            <Routes />
+          </SafeAreaView>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   )
 }

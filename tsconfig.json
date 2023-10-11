@@ -10,6 +10,7 @@
       "@http-client": ["src/http-client"],
       "@models/*": ["src/models/*"],
       "@routes": ["src/routes"],
+      "@routes/*": ["src/routes/*"],
       "@schemas/*": ["src/schemas/*"],
       "@screens/*": ["src/screens/*"],
       "@store/*": ["src/store/*"],

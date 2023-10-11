@@ -2,21 +2,22 @@ import { Button } from '@components/Button'
 import { ContainerForm } from '@components/Form/ContainerForm'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { userSchema } from '@schemas/userSchema'
+import { SignInFormValues, userSchema } from '@schemas/userSchema'
 import { InputForm } from '@components/Form/InputForm'
 import { PasswordForm } from '@components/Form/PasswordForm'
 
 interface SignInFormProps {
-  onSubmit: () => void
+  onSubmit: (formValues: SignInFormValues) => void
+  loading: boolean
 }
 
-export function SignInForm({ onSubmit }: SignInFormProps) {
+export function SignInForm({ onSubmit, loading }: SignInFormProps) {
   const {
     control,
-    handleSubmit,
     setFocus,
+    handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<SignInFormValues>({
     resolver: zodResolver(userSchema),
     mode: 'onChange',
   })
@@ -25,7 +26,7 @@ export function SignInForm({ onSubmit }: SignInFormProps) {
     <ContainerForm>
       <InputForm
         control={control}
-        error={errors.email?.message ? errors.email.message.toString() : ''}
+        error={errors.email?.message}
         onSubmitEditing={() => setFocus('password')}
         keyboardType="email-address"
         autoComplete="email"
@@ -39,16 +40,19 @@ export function SignInForm({ onSubmit }: SignInFormProps) {
 
       <PasswordForm
         control={control}
-        error={
-          errors.password?.message ? errors.password.message.toString() : ''
-        }
+        error={errors.password?.message}
         autoCapitalize="none"
         name="password"
         label="Senha"
         placeholder="********"
+        returnKeyType="send"
       />
 
-      <Button title="Entrar" onPress={handleSubmit(onSubmit)} />
+      <Button
+        title="Entrar"
+        loading={loading}
+        onPress={handleSubmit(onSubmit)}
+      />
     </ContainerForm>
   )
 }

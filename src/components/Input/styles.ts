@@ -36,7 +36,7 @@ export const Icon = styled.TouchableOpacity`
 
 export const TextInput = styled(RNTextInput)<ErrorProps>`
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
   height: 56px;
   flex: 1;

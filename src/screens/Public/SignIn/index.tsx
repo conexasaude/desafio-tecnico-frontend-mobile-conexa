@@ -1,34 +1,42 @@
-import { Container, Slogan } from './styles'
-import { SignInForm } from './SignInForm'
-import { Card } from '@components/Card'
 import { useCallback } from 'react'
-import { authenticateUser } from '../../../store/thunks/auth.thunk'
-import { useDispatch } from '@hooks/useDispatch'
 
-import Logo from '@assets/images/logo.svg'
+import { Container, Slogan } from './styles'
+
+import { Card } from '@components/Card'
+import { Brand } from '@components/layout/Brand'
+
+import { SignInForm } from './SignInForm'
+
+import { useAppDispatch } from '@hooks/useAppDispatch'
+import { useAppSelector } from '@hooks/useAppSelector'
+
+import { signIn } from '@store/actions/auth.actions'
+
+import { SignInFormValues } from '@schemas/userSchema'
 
 export function SignIn() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
+  const loading = useAppSelector((state) => state.auth.loading)
 
-  const handleSignIn = useCallback(async () => {
-    dispatch(
-      authenticateUser({
-        email: 'diogo.alvesf88@gmail.com',
-        password: 'kgb8y2kk',
-      }),
-    )
-  }, [dispatch])
+  const handleSignIn = useCallback(
+    (formValues: SignInFormValues) => {
+      dispatch(
+        signIn({ email: formValues.email, password: formValues.password }),
+      )
+    },
+    [dispatch],
+  )
 
   return (
     <Container>
-      <Logo />
+      <Brand />
 
       <Slogan>
         Entre em sua conta para agendar, listar e detalhar consultas.
       </Slogan>
 
       <Card>
-        <SignInForm onSubmit={handleSignIn} />
+        <SignInForm onSubmit={handleSignIn} loading={loading} />
       </Card>
     </Container>
   )
