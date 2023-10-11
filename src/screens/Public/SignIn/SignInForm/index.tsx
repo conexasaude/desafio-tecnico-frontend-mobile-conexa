@@ -1,10 +1,17 @@
-import { Button } from '@components/Button'
-import { ContainerForm } from '@components/Form/ContainerForm'
+// Schema validation
 import { zodResolver } from '@hookform/resolvers/zod'
+
+// Form
 import { useForm } from 'react-hook-form'
+
+// Schema
 import { SignInFormValues, userSchema } from '@schemas/userSchema'
+
+// Components
+import { ContainerForm } from '@components/Form/ContainerForm'
 import { InputForm } from '@components/Form/InputForm'
 import { PasswordForm } from '@components/Form/PasswordForm'
+import { Button } from '@components/Button'
 
 interface SignInFormProps {
   onSubmit: (formValues: SignInFormValues) => void

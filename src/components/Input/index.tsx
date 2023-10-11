@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
-
 import { TextInput as RNTextInput, TextInputProps } from 'react-native'
+
 import {
   Container,
   Label,
@@ -9,6 +9,7 @@ import {
   ContainerRow,
   Icon,
 } from './styles'
+
 import { useTheme } from '@emotion/react'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'

@@ -1,4 +1,5 @@
 import { ActivityIndicator, TouchableOpacityProps } from 'react-native'
+
 import { Container, ButtonText } from './styles'
 
 interface ButtonProps extends TouchableOpacityProps {

@@ -1,8 +1,12 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { persistReducer, persistStore } from 'redux-persist'
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import authReducer from './reducers/auth.reducer'
+
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { authReducer } from './reducers/auth.reducer'
+import {
+  appointmentsReducer,
+  appointmentReducer,
+} from './reducers/appointment.reducer'
+import { persistReducer, persistStore } from 'redux-persist'
 
 const persistConfig = {
   key: 'root',
@@ -12,6 +16,8 @@ const persistConfig = {
 
 const reducer = combineReducers({
   auth: authReducer,
+  appointments: appointmentsReducer,
+  appointment: appointmentReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)

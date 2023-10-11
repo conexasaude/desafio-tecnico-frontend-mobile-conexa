@@ -1,8 +1,9 @@
 import { UserDTO } from '@models/UserDTO'
+
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
+  SIGN_IN_REQUEST,
+  SIGN_IN_SUCCESS,
+  SIGN_IN_FAILURE,
   LOGOUT,
 } from '../actions/auth.actions'
 import { PayloadAction } from '@reduxjs/toolkit'
@@ -10,52 +11,46 @@ import { PayloadAction } from '@reduxjs/toolkit'
 interface AuthState {
   isAuthenticated: boolean
   loading: boolean
-  user: UserDTO | null
+  user?: UserDTO
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
   loading: false,
-  user: null,
+  user: undefined,
 }
 
-const authReducer = (
+export const authReducer = (
   state = initialState,
   action: PayloadAction<UserDTO>,
 ): AuthState => {
   switch (action.type) {
-    case LOGIN_REQUEST:
+    case SIGN_IN_REQUEST:
       return {
         ...state,
         loading: true,
       }
-
-    case LOGIN_SUCCESS:
+    case SIGN_IN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         loading: false,
         user: action.payload,
       }
-
-    case LOGIN_FAILURE:
+    case SIGN_IN_FAILURE:
       return {
         ...state,
         isAuthenticated: false,
         loading: false,
-        user: null,
+        user: undefined,
       }
-
     case LOGOUT:
       return {
         ...state,
         isAuthenticated: false,
-        user: null,
+        user: undefined,
       }
-
     default:
       return state
   }
 }
-
-export default authReducer

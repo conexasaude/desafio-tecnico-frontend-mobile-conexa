@@ -1,4 +1,7 @@
+// Components
 import { Header } from '@components/layout/Header'
+
+// Styles
 import { Container, Mandatory, Title } from './styles'
 
 export function NewAppointment() {

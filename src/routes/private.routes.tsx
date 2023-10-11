@@ -10,7 +10,9 @@ type PrivateRoutes = {
   Tabs: {
     screen: string
   }
-  AppointmentDetail: undefined
+  AppointmentDetail: {
+    id: number
+  }
   NewAppointment: undefined
 }
 

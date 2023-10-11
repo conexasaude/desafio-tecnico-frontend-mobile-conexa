@@ -1,4 +1,5 @@
 import { useTheme } from '@emotion/react'
+
 import {
   Container,
   ContainerDateHour,
@@ -8,8 +9,6 @@ import {
   Hour,
   Patient,
 } from './styles'
-import { useNavigation } from '@react-navigation/native'
-import { PrivateRoutesProps } from '@routes/private.routes'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -17,15 +16,19 @@ interface AppointmentCardProps {
   patient: string
   date: string
   hour: string
+  onPress: () => void
 }
 
-export function AppointmentCard({ patient, date, hour }: AppointmentCardProps) {
+export function AppointmentCard({
+  patient,
+  date,
+  hour,
+  onPress,
+}: AppointmentCardProps) {
   const { COLORS } = useTheme()
 
-  const navigation = useNavigation<PrivateRoutesProps>()
-
   return (
-    <Container onPress={() => navigation.navigate('AppointmentDetail')}>
+    <Container onPress={onPress}>
       <ContainerRow>
         <Grid>
           <Patient>{patient}</Patient>
