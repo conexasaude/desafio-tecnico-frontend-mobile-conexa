@@ -1,30 +1,33 @@
-# Desafio Técnico Front-End Mobile Conexa
+## Instalação e como executar
 
-Descrição:
+```terminal
+Clone o repositorio:
+$ git clone git@github.com:diogoalvesf/desafio-tecnico-frontend-mobile-conexa.git
 
-Precisamos construir um front onde nossos médicos de plantão consigam agendar atendimentos para os pacientes e listar os atendimentos agendados.
+$ cd desafio-tecnico-frontend-mobile-conexa
 
-Será necessário ter uma tela de login para que médicos da clínica Conexa Saúde consigam acessar a aplicação, utilizando email e senha (Podem realizar o login com qualquer usuário de teste).
-O response do login será um token de validação e o nome do médico.
+$ git checkout feature/create-app-conexa-saude
 
-O médico poderá cadastrar, listar e detalhar uma consulta.
+Criar um arquivo .env na raiz do projeto com a propriedade:
+BASE_URL=http://desafio.conexasaude.com.br
 
-Link da API: http://desafio.conexasaude.com.br/swagger-ui.html#/desafio-rest
+Instalar todas as dependências:
+$ yarn
 
-Requisitos:
+Iniciar o app no iOS:
+$ npx pod-install
+$ yarn ios
 
-* Desenvolver uma aplicação usando React Native;
-* Clonar este repositório, criar uma nova branch e abrir um merge request para master;
+Iniciar o app no Android:
+$ yarn android
+```
 
-Serão avaliados os seguintes itens:
+## Preview
 
-* Clareza do código;
-* Estrutura criada para a aplicação;
-* Se os requisitos descritos acima foram atendidos;
-* Se possui descrição clara de como montar o ambiente local e realizar os testes (se houverem);
-
-Em caso de dúvidas sobre o desafio, entre em contato.
-
-Adicionamos um projeto do Postman para auxílio.
-
-Lembre-se que uma boa aplicação é bem testada.
+<div>
+ <img src="./src/assets/images/login.png" width=120 />
+ <img src="./src/assets/images/home.png" width=120 />
+ <img src="./src/assets/images/list.png" width=120 />
+ <img src="./src/assets/images/detail.png" width=120 />
+ <img src="./src/assets/images/new-appointment.png" width=120 />
+</div>
