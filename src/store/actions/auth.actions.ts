@@ -1,10 +1,7 @@
-// Schema
 import { SignInFormValues } from '@schemas/userSchema'
 
-// Http client
 import { httpClient } from '@http-client'
 
-// Redux
 import { Dispatch } from 'redux'
 
 export const SIGN_IN_REQUEST = 'SIGN_IN_REQUEST'

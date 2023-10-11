@@ -6,7 +6,7 @@ export const Container = styled.View`
   gap: 16px;
 
   ${({ theme }) => css`
-    background-color: ${theme.COLORS.BACKGROUND};
+    background-color: ${theme.COLORS.WHITE};
   `};
 `
 

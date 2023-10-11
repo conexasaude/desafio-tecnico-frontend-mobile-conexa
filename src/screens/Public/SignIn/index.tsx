@@ -1,20 +1,15 @@
-// React
 import { useCallback } from 'react'
 
-// Styles
 import { Container, Slogan } from './styles'
 
-// Components
 import { Card } from '@components/Card'
 import { Brand } from '@components/layout/Brand'
 import { SignInForm } from './SignInForm'
 
-// Redux
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
 import { signIn } from '@store/actions/auth.actions'
 
-// Schema
 import { SignInFormValues } from '@schemas/userSchema'
 
 export function SignIn() {

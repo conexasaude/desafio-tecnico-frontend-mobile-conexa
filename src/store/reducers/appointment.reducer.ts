@@ -17,6 +17,7 @@ interface AppointmentsState {
 
 interface AppointmentState {
   loading: boolean
+  success: boolean
   appointment?: Appointment
 }
 
@@ -27,6 +28,7 @@ const initialStateAppointments: AppointmentsState = {
 
 const initialStateAppointment: AppointmentState = {
   loading: false,
+  success: false,
   appointment: undefined,
 }
 
@@ -71,6 +73,7 @@ export const appointmentReducer = (
       return {
         ...state,
         loading: false,
+        success: true,
         appointment: action.payload,
       }
     case APPOINTMENT_FAILURE:

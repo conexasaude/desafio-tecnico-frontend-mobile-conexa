@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { TextInputProps } from 'react-native'
 
-import { Control, Controller } from 'react-hook-form'
+import { Control, Controller, FieldValue, FieldValues } from 'react-hook-form'
 
 import { Input } from '@components/Input'
 
 interface PasswordFormProps extends TextInputProps {
-  control: Control
+  control: Control<FieldValue<FieldValues>>
   name: string
   label: string
   error?: string

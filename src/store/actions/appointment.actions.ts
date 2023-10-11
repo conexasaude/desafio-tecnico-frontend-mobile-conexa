@@ -1,4 +1,5 @@
 import { httpClient } from '@http-client'
+import { AppointmentFormValues } from '@schemas/appointmentSchema'
 
 import { Dispatch } from 'redux'
 
@@ -33,13 +34,20 @@ export const fetchAppointmentById =
     }
   }
 
-export const createAppointment = () => async (dispatch: Dispatch) => {
-  dispatch({ type: APPOINTMENT_REQUEST })
+export const createAppointment =
+  (form: AppointmentFormValues) => async (dispatch: Dispatch) => {
+    dispatch({ type: APPOINTMENT_REQUEST })
 
-  try {
-    const { data } = await httpClient.post('/api/consulta')
-    dispatch({ type: APPOINTMENT_SUCCESS, payload: data.data })
-  } catch (error) {
-    dispatch({ type: APPOINTMENTS_FAILURE })
+    try {
+      const { data } = await httpClient.post('/api/consulta', {
+        idMedico: 1,
+        paciente: form.patient,
+        dataConsulta: form.appointmentDate,
+        observation: form.observation,
+      })
+
+      dispatch({ type: APPOINTMENT_SUCCESS, payload: data.data })
+    } catch (error) {
+      dispatch({ type: APPOINTMENTS_FAILURE })
+    }
   }
-}
